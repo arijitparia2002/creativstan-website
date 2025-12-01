@@ -44,7 +44,7 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-dark-900/95 backdrop-blur-lg border-b border-wine-900/30 shadow-lg'
+            ? 'bg-dark-900/95 backdrop-blur-lg border-b border-primary-navy/30 shadow-lg'
             : 'bg-transparent'
         }`}
       >
@@ -56,7 +56,7 @@ export default function Navbar() {
               className="cursor-pointer"
               onClick={() => scrollToSection('#')}
             >
-              <h1 className="text-2xl md:text-3xl font-bebas text-gradient-wine">
+              <h1 className="text-2xl md:text-3xl font-raleway text-gradient-primary">
                 CREATIVSTAN
               </h1>
             </motion.div>
@@ -67,7 +67,7 @@ export default function Navbar() {
                 <motion.button
                   key={index}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-gray-300 hover:text-wine-400 font-poppins font-medium transition-colors"
+                  className="text-gray-300 hover:text-primary-teal font-raleway font-medium transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -78,7 +78,7 @@ export default function Navbar() {
                 href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/reel%20/invite"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 bg-wine-600 hover:bg-wine-700 text-white font-poppins font-semibold rounded-lg transition-all duration-300"
+                className="px-6 py-2 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -103,14 +103,14 @@ export default function Navbar() {
         initial={{ x: '100%' }}
         animate={{ x: isMobileMenuOpen ? 0 : '100%' }}
         transition={{ type: 'tween', duration: 0.3 }}
-        className="fixed top-0 right-0 bottom-0 w-64 bg-dark-900 border-l border-wine-900/30 z-50 md:hidden"
+        className="fixed top-0 right-0 bottom-0 w-64 bg-dark-900 border-l border-primary-navy/30 z-50 md:hidden"
       >
         <div className="flex flex-col p-6 pt-24 gap-6">
           {navLinks.map((link, index) => (
             <button
               key={index}
               onClick={() => scrollToSection(link.href)}
-              className="text-gray-300 hover:text-wine-400 font-poppins font-medium text-left transition-colors"
+              className="text-gray-300 hover:text-primary-teal font-raleway font-medium text-left transition-colors"
             >
               {link.name}
             </button>
@@ -119,7 +119,7 @@ export default function Navbar() {
             href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/reel%20/invite"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-wine-600 hover:bg-wine-700 text-white font-poppins font-semibold rounded-lg transition-all duration-300 text-center"
+            className="px-6 py-3 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 text-center"
           >
             Get Started
           </a>

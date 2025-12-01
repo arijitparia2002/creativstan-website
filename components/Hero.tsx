@@ -12,11 +12,11 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-wine-950 to-dark-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-primary-navy to-dark-900">
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-wine-600 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-wine-700 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-wine-800 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-primary-teal rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary-navy rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-primary-navy rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
         </div>
       </div>
 
@@ -31,16 +31,16 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className="font-bebas text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight"
+            className="font-raleway text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-gradient-wine">CREATIVSTAN</span>
+            <span className="text-gradient-primary">CREATIVSTAN</span>
           </motion.h1>
 
           <motion.p
-            className="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold mb-4 text-white"
+            className="text-2xl md:text-3xl lg:text-4xl font-raleway font-bold mb-4 text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -49,7 +49,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl text-gray-300 mb-12 font-inter"
+            className="text-lg md:text-xl text-gray-300 mb-12 font-raleway"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -65,7 +65,7 @@ export default function Hero() {
           >
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="px-8 py-4 bg-wine-600 hover:bg-wine-700 text-white font-poppins font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-wine-strong text-lg"
+              className="px-8 py-4 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal-strong text-lg"
             >
               View Portfolio
             </button>
@@ -74,7 +74,7 @@ export default function Hero() {
               href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/%20reel%20/%20invite"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-poppins font-semibold rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
+              className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
             >
               <FaWhatsapp className="text-2xl" />
               WhatsApp Me
@@ -92,7 +92,7 @@ export default function Hero() {
       >
         <button
           onClick={() => scrollToSection('about')}
-          className="animate-bounce text-wine-400 hover:text-wine-300 transition-colors"
+          className="animate-bounce text-primary-teal hover:text-primary-yellow/60 transition-colors"
         >
           <FaArrowDown className="text-3xl" />
         </button>
@@ -103,7 +103,7 @@ export default function Hero() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="particle bg-wine-500"
+            className="particle bg-primary-teal/100"
             style={{
               width: Math.random() * 6 + 2 + 'px',
               height: Math.random() * 6 + 2 + 'px',

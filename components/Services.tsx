@@ -82,8 +82,8 @@ export default function Services() {
   return (
     <section id="services" className="section-padding bg-dark-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-wine-900/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-wine-800/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary-navy/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-navy/20 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
@@ -94,10 +94,10 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bebas mb-4 text-gradient-wine">
+          <h2 className="text-5xl md:text-6xl font-raleway mb-4 text-gradient-primary">
             OUR SERVICES
           </h2>
-          <p className="text-xl text-gray-400 font-inter max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 font-raleway max-w-2xl mx-auto">
             From posters to reels, we create stunning digital content that makes you stand out
           </p>
         </motion.div>
@@ -117,26 +117,26 @@ export default function Services() {
                 variants={itemVariants}
                 className="group relative"
               >
-                <div className="bg-dark-800 rounded-xl p-6 h-full border border-wine-900/20 card-hover relative overflow-hidden">
+                <div className="bg-dark-800 rounded-xl p-6 h-full border border-primary-navy/20 card-hover relative overflow-hidden">
                   {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-wine-600/0 to-wine-900/0 group-hover:from-wine-600/10 group-hover:to-wine-900/10 transition-all duration-300 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-teal/0 to-primary-navy/0 group-hover:from-primary-teal/10 group-hover:to-primary-navy/10 transition-all duration-300 rounded-xl"></div>
 
                   {/* Icon */}
                   <div className="relative mb-4">
-                    <div className="w-16 h-16 bg-wine-600/20 rounded-lg flex items-center justify-center group-hover:bg-wine-600/30 transition-all duration-300 group-hover:scale-110">
-                      <Icon className="text-3xl text-wine-400 group-hover:text-wine-300 transition-colors" />
+                    <div className="w-16 h-16 bg-primary-teal/20 rounded-lg flex items-center justify-center group-hover:bg-primary-teal/30 transition-all duration-300 group-hover:scale-110">
+                      <Icon className="text-3xl text-primary-teal group-hover:text-primary-yellow/60 transition-colors" />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="relative">
-                    <h3 className="text-xl font-poppins font-bold mb-2 text-white group-hover:text-wine-300 transition-colors">
+                    <h3 className="text-xl font-raleway font-bold mb-2 text-white group-hover:text-primary-yellow/60 transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-gray-400 mb-4 text-sm leading-relaxed">
                       {service.description}
                     </p>
-                    <p className="text-wine-400 font-semibold font-poppins mb-4">
+                    <p className="text-primary-teal font-semibold font-raleway mb-4">
                       {service.price}
                     </p>
 
@@ -145,14 +145,14 @@ export default function Services() {
                       href={`https://wa.me/919876543210?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(service.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block w-full text-center px-4 py-2 bg-wine-600 hover:bg-wine-700 text-white font-poppins font-medium rounded-lg transition-all duration-300 group-hover:scale-105"
+                      className="inline-block w-full text-center px-4 py-2 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-medium rounded-lg transition-all duration-300 group-hover:scale-105"
                     >
                       DM to Order
                     </a>
                   </div>
 
                   {/* Border glow on hover */}
-                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border-2 border-wine-600/50"></div>
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border-2 border-primary-teal/50"></div>
                 </div>
               </motion.div>
             )
@@ -173,7 +173,7 @@ export default function Services() {
             href="https://wa.me/919876543210?text=Hi%20I%20have%20a%20custom%20project%20in%20mind"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-wine-600 to-wine-800 hover:from-wine-700 hover:to-wine-900 text-white font-poppins font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-wine"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-primary-teal to-primary-navy hover:from-primary-navy hover:to-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
           >
             Contact for Custom Projects
           </a>

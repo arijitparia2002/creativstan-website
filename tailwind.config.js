@@ -8,18 +8,12 @@ const config = {
   theme: {
     extend: {
       colors: {
-        wine: {
-          50: '#fdf4f5',
-          100: '#fbe8eb',
-          200: '#f6d5db',
-          300: '#eeb3be',
-          400: '#e38799',
-          500: '#d25c77',
-          600: '#b83d5b',
-          700: '#9b2d4a',
-          800: '#822840',
-          900: '#6f2539',
-          950: '#3e101a',
+        primary: {
+          navy: '#264653',
+          teal: '#2A9D8F',
+          yellow: '#E9C46A',
+          orange: '#F4A261',
+          coral: '#E76F51',
         },
         dark: {
           900: '#0E0E0E',
@@ -28,9 +22,7 @@ const config = {
         }
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-        bebas: ['Bebas Neue', 'cursive'],
+        raleway: ['Raleway', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -44,8 +36,8 @@ const config = {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px #b83d5b, 0 0 10px #b83d5b' },
-          '100%': { boxShadow: '0 0 20px #b83d5b, 0 0 30px #b83d5b, 0 0 40px #b83d5b' },
+          '0%': { boxShadow: '0 0 5px #2A9D8F, 0 0 10px #2A9D8F' },
+          '100%': { boxShadow: '0 0 20px #2A9D8F, 0 0 30px #2A9D8F, 0 0 40px #2A9D8F' },
         },
         slideUp: {
           '0%': { transform: 'translateY(100px)', opacity: '0' },

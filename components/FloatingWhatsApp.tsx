@@ -28,10 +28,10 @@ export default function FloatingWhatsApp() {
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : 20 }}
-          className="absolute right-full mr-4 px-4 py-2 bg-dark-800 border border-wine-600/50 rounded-lg whitespace-nowrap pointer-events-none"
+          className="absolute right-full mr-4 px-4 py-2 bg-dark-800 border border-primary-teal/50 rounded-lg whitespace-nowrap pointer-events-none"
         >
-          <p className="text-white font-poppins font-semibold">Chat with us!</p>
-          <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-wine-600/50"></div>
+          <p className="text-white font-raleway font-semibold">Chat with us!</p>
+          <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-primary-teal/50"></div>
         </motion.div>
 
         {/* Button */}
@@ -40,7 +40,7 @@ export default function FloatingWhatsApp() {
           <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
 
           {/* Main button */}
-          <div className="relative w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg glow-wine-strong transition-colors">
+          <div className="relative w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg glow-teal-strong transition-colors">
             <FaWhatsapp className="text-4xl text-white" />
           </div>
 

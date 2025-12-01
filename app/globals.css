@@ -15,7 +15,7 @@ html {
 body {
   background-color: #0E0E0E;
   color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
 }
 
@@ -29,27 +29,27 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b83d5b;
+  background: #2A9D8F;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9b2d4a;
+  background: #264653;
 }
 
 /* Glow effects */
-.glow-wine {
-  box-shadow: 0 0 20px rgba(184, 61, 91, 0.5);
+.glow-teal {
+  box-shadow: 0 0 20px rgba(42, 157, 143, 0.5);
 }
 
-.glow-wine-strong {
-  box-shadow: 0 0 30px rgba(184, 61, 91, 0.8),
-              0 0 60px rgba(184, 61, 91, 0.4);
+.glow-teal-strong {
+  box-shadow: 0 0 30px rgba(42, 157, 143, 0.8),
+              0 0 60px rgba(42, 157, 143, 0.4);
 }
 
 /* Text gradient */
-.text-gradient-wine {
-  background: linear-gradient(135deg, #d25c77 0%, #b83d5b 50%, #9b2d4a 100%);
+.text-gradient-primary {
+  background: linear-gradient(135deg, #2A9D8F 0%, #E9C46A 50%, #F4A261 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,7 +62,7 @@ body {
 
 .card-hover:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(184, 61, 91, 0.3);
+  box-shadow: 0 20px 40px rgba(42, 157, 143, 0.3);
 }
 
 /* Floating animation */

@@ -74,8 +74,8 @@ export default function WhyChooseUs() {
   return (
     <section id="why-choose-us" className="section-padding bg-gradient-to-b from-dark-900 to-dark-800 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-wine-900/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-wine-800/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-navy/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-navy/20 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
@@ -86,10 +86,10 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bebas mb-4 text-gradient-wine">
+          <h2 className="text-5xl md:text-6xl font-raleway mb-4 text-gradient-primary">
             WHY CHOOSE CREATIVSTAN?
           </h2>
-          <p className="text-xl text-gray-400 font-inter max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 font-raleway max-w-2xl mx-auto">
             We don&apos;t just create designs — we bring your vision to life with passion and precision
           </p>
         </motion.div>
@@ -109,20 +109,20 @@ export default function WhyChooseUs() {
                 variants={itemVariants}
                 className="group relative"
               >
-                <div className="h-full bg-dark-800/50 backdrop-blur-sm rounded-xl p-6 border border-wine-900/20 hover:border-wine-600/50 transition-all duration-300 hover:transform hover:-translate-y-2">
+                <div className="h-full bg-dark-800/50 backdrop-blur-sm rounded-xl p-6 border border-primary-navy/20 hover:border-primary-teal/50 transition-all duration-300 hover:transform hover:-translate-y-2">
                   {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-wine-600/0 to-wine-900/0 group-hover:from-wine-600/5 group-hover:to-wine-900/5 transition-all duration-300 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-teal/0 to-primary-navy/0 group-hover:from-primary-teal/5 group-hover:to-primary-navy/5 transition-all duration-300 rounded-xl"></div>
 
                   <div className="relative">
                     {/* Icon */}
                     <div className="mb-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-wine-600/20 to-wine-900/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="text-3xl text-wine-400" />
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-teal/20 to-primary-navy/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="text-3xl text-primary-teal" />
                       </div>
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl font-poppins font-bold mb-3 text-white group-hover:text-wine-300 transition-colors">
+                    <h3 className="text-xl font-raleway font-bold mb-3 text-white group-hover:text-primary-yellow/60 transition-colors">
                       {feature.title}
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed">
@@ -131,7 +131,7 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-wine-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary-teal to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </motion.div>
             )
@@ -156,12 +156,12 @@ export default function WhyChooseUs() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-              className="text-center p-6 bg-dark-800/30 rounded-xl border border-wine-900/20"
+              className="text-center p-6 bg-dark-800/30 rounded-xl border border-primary-navy/20"
             >
-              <div className="text-4xl md:text-5xl font-bebas text-gradient-wine mb-2">
+              <div className="text-4xl md:text-5xl font-raleway text-gradient-primary mb-2">
                 {stat.number}
               </div>
-              <div className="text-gray-400 font-poppins">
+              <div className="text-gray-400 font-raleway">
                 {stat.label}
               </div>
             </motion.div>

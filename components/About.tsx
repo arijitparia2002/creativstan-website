@@ -23,21 +23,21 @@ export default function About() {
           >
             <div className="relative w-full max-w-md mx-auto">
               {/* Placeholder for your image - replace with actual image */}
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-wine-600 to-wine-900 flex items-center justify-center glow-wine-strong">
+              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary-teal to-primary-navy flex items-center justify-center glow-teal-strong">
                 <div className="text-center p-8">
                   <FaPaintBrush className="text-9xl text-white mb-4 mx-auto animate-float" />
-                  <p className="text-2xl font-bebas text-white">Creative Designer</p>
+                  <p className="text-2xl font-raleway text-white">Creative Designer</p>
                 </div>
               </div>
 
               {/* Floating elements */}
               <motion.div
-                className="absolute -top-6 -right-6 w-24 h-24 bg-wine-500 rounded-full blur-2xl"
+                className="absolute -top-6 -right-6 w-24 h-24 bg-primary-teal/100 rounded-full blur-2xl"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 4, repeat: Infinity }}
               />
               <motion.div
-                className="absolute -bottom-6 -left-6 w-32 h-32 bg-wine-700 rounded-full blur-2xl"
+                className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-navy rounded-full blur-2xl"
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ duration: 5, repeat: Infinity }}
               />
@@ -50,19 +50,19 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-5xl md:text-6xl font-bebas mb-6 text-gradient-wine">
+            <h2 className="text-5xl md:text-6xl font-raleway mb-6 text-gradient-primary">
               ABOUT ME
             </h2>
 
-            <h3 className="text-3xl font-poppins font-bold mb-6 text-white">
+            <h3 className="text-3xl font-raleway font-bold mb-6 text-white">
               Hi, I&apos;m Arijit — Your Personal Digital Creator
             </h3>
 
-            <p className="text-lg text-gray-300 mb-6 leading-relaxed font-inter">
+            <p className="text-lg text-gray-300 mb-6 leading-relaxed font-raleway">
               I design posters, reels, wedding invites, ads, branding content, and modern digital assets for individuals & businesses.
             </p>
 
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed font-inter">
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed font-raleway">
               With a passion for creativity and attention to detail, I transform your ideas into stunning visual experiences that captivate and inspire.
             </p>
 
@@ -74,11 +74,11 @@ export default function About() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-wine-600/20 rounded-lg flex items-center justify-center">
-                  <FaRocket className="text-2xl text-wine-400" />
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
+                  <FaRocket className="text-2xl text-primary-teal" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-poppins font-semibold mb-1 text-white">Fast Delivery</h4>
+                  <h4 className="text-xl font-raleway font-semibold mb-1 text-white">Fast Delivery</h4>
                   <p className="text-gray-400">Quick turnaround without compromising on quality</p>
                 </div>
               </motion.div>
@@ -89,11 +89,11 @@ export default function About() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-wine-600/20 rounded-lg flex items-center justify-center">
-                  <FaPaintBrush className="text-2xl text-wine-400" />
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
+                  <FaPaintBrush className="text-2xl text-primary-teal" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-poppins font-semibold mb-1 text-white">Modern Designs</h4>
+                  <h4 className="text-xl font-raleway font-semibold mb-1 text-white">Modern Designs</h4>
                   <p className="text-gray-400">Trendy, eye-catching designs that stand out</p>
                 </div>
               </motion.div>
@@ -104,11 +104,11 @@ export default function About() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-wine-600/20 rounded-lg flex items-center justify-center">
-                  <FaHeart className="text-2xl text-wine-400" />
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
+                  <FaHeart className="text-2xl text-primary-teal" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-poppins font-semibold mb-1 text-white">100% Custom Work</h4>
+                  <h4 className="text-xl font-raleway font-semibold mb-1 text-white">100% Custom Work</h4>
                   <p className="text-gray-400">Every design is unique and tailored to your needs</p>
                 </div>
               </motion.div>

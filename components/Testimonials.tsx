@@ -95,7 +95,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="section-padding bg-dark-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-wine-950/10 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-navy/10 to-transparent"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
@@ -106,10 +106,10 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bebas mb-4 text-gradient-wine">
+          <h2 className="text-5xl md:text-6xl font-raleway mb-4 text-gradient-primary">
             CLIENT TESTIMONIALS
           </h2>
-          <p className="text-xl text-gray-400 font-inter max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 font-raleway max-w-2xl mx-auto">
             Don&apos;t just take our word for it — hear from our satisfied clients
           </p>
         </motion.div>
@@ -131,34 +131,34 @@ export default function Testimonials() {
                 }}
                 className="absolute w-full"
               >
-                <div className="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 md:p-12 border border-wine-900/30 glow-wine">
+                <div className="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 md:p-12 border border-primary-navy/30 glow-teal">
                   {/* Quote icon */}
                   <div className="mb-6">
-                    <FaQuoteLeft className="text-4xl text-wine-600/50" />
+                    <FaQuoteLeft className="text-4xl text-primary-teal/50" />
                   </div>
 
                   {/* Testimonial text */}
-                  <p className="text-xl md:text-2xl text-gray-300 font-inter leading-relaxed mb-8">
+                  <p className="text-xl md:text-2xl text-gray-300 font-raleway leading-relaxed mb-8">
                     &quot;{testimonials[currentIndex].text}&quot;
                   </p>
 
                   {/* Rating */}
                   <div className="flex gap-1 mb-6">
                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <FaStar key={i} className="text-2xl text-wine-500" />
+                      <FaStar key={i} className="text-2xl text-primary-teal/100" />
                     ))}
                   </div>
 
                   {/* Author info */}
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-wine-600 to-wine-900 flex items-center justify-center text-3xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-teal to-primary-navy flex items-center justify-center text-3xl">
                       {testimonials[currentIndex].image}
                     </div>
                     <div>
-                      <h4 className="text-xl font-poppins font-bold text-white">
+                      <h4 className="text-xl font-raleway font-bold text-white">
                         {testimonials[currentIndex].name}
                       </h4>
-                      <p className="text-wine-400 font-inter">
+                      <p className="text-primary-teal font-raleway">
                         {testimonials[currentIndex].role}
                       </p>
                     </div>
@@ -172,10 +172,10 @@ export default function Testimonials() {
           <div className="flex justify-center gap-4 mt-8">
             <button
               onClick={() => paginate(-1)}
-              className="w-12 h-12 rounded-full bg-wine-600/20 hover:bg-wine-600/40 border border-wine-600/50 flex items-center justify-center transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 rounded-full bg-primary-teal/20 hover:bg-primary-teal/40 border border-primary-teal/50 flex items-center justify-center transition-all duration-300 hover:scale-110"
               aria-label="Previous testimonial"
             >
-              <FaChevronLeft className="text-wine-400" />
+              <FaChevronLeft className="text-primary-teal" />
             </button>
 
             {/* Dots indicator */}
@@ -189,8 +189,8 @@ export default function Testimonials() {
                   }}
                   className={`transition-all duration-300 rounded-full ${
                     index === currentIndex
-                      ? 'w-8 h-3 bg-wine-600'
-                      : 'w-3 h-3 bg-wine-900/50 hover:bg-wine-700/50'
+                      ? 'w-8 h-3 bg-primary-teal'
+                      : 'w-3 h-3 bg-primary-navy/50 hover:bg-primary-navy/50'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -199,10 +199,10 @@ export default function Testimonials() {
 
             <button
               onClick={() => paginate(1)}
-              className="w-12 h-12 rounded-full bg-wine-600/20 hover:bg-wine-600/40 border border-wine-600/50 flex items-center justify-center transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 rounded-full bg-primary-teal/20 hover:bg-primary-teal/40 border border-primary-teal/50 flex items-center justify-center transition-all duration-300 hover:scale-110"
               aria-label="Next testimonial"
             >
-              <FaChevronRight className="text-wine-400" />
+              <FaChevronRight className="text-primary-teal" />
             </button>
           </div>
         </div>
@@ -215,17 +215,17 @@ export default function Testimonials() {
           className="flex flex-wrap justify-center items-center gap-8 mt-16"
         >
           <div className="text-center">
-            <div className="text-3xl font-bebas text-wine-400">4.9/5</div>
+            <div className="text-3xl font-raleway text-primary-teal">4.9/5</div>
             <div className="text-gray-500 text-sm">Average Rating</div>
           </div>
-          <div className="h-12 w-px bg-wine-900/30"></div>
+          <div className="h-12 w-px bg-primary-navy/30"></div>
           <div className="text-center">
-            <div className="text-3xl font-bebas text-wine-400">300+</div>
+            <div className="text-3xl font-raleway text-primary-teal">300+</div>
             <div className="text-gray-500 text-sm">Happy Clients</div>
           </div>
-          <div className="h-12 w-px bg-wine-900/30"></div>
+          <div className="h-12 w-px bg-primary-navy/30"></div>
           <div className="text-center">
-            <div className="text-3xl font-bebas text-wine-400">100%</div>
+            <div className="text-3xl font-raleway text-primary-teal">100%</div>
             <div className="text-gray-500 text-sm">Satisfaction</div>
           </div>
         </motion.div>

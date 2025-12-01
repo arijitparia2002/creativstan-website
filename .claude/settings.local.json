@@ -8,7 +8,8 @@
       "Bash(npm run dev:*)",
       "Bash(timeout 5 bash:*)",
       "Bash(npm uninstall:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(node update-colors.js:*)"
     ],
     "deny": [],
     "ask": []
