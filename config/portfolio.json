@@ -1,0 +1,124 @@
+{
+  "portfolioItems": [
+    {
+      "id": 1,
+      "category": "Posters",
+      "title": "Festival Poster",
+      "shortDesc": "Vibrant festival celebration design",
+      "longDesc": "A stunning festival poster featuring vibrant colors and modern typography, perfect for Diwali celebrations with traditional motifs and contemporary styling.",
+      "thumbnail": "/thumbnails/festival-poster.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 2,
+      "category": "Birthday Cards",
+      "title": "Birthday Celebration",
+      "shortDesc": "Colorful birthday card design",
+      "longDesc": "Modern birthday card with animated elements, confetti effects, and customizable text perfect for social media posts and digital invitations.",
+      "thumbnail": "/thumbnails/birthday-card.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 3,
+      "category": "Wedding Invites",
+      "title": "Wedding Invitation",
+      "shortDesc": "Elegant wedding invite with gold accents",
+      "longDesc": "Sophisticated wedding invitation featuring elegant typography, gold foil effects, and beautiful floral patterns. Includes customizable ceremony details.",
+      "thumbnail": "/thumbnails/wedding-invite.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 4,
+      "category": "Reels",
+      "title": "Instagram Reel",
+      "shortDesc": "Trending Instagram reel template",
+      "longDesc": "High-energy Instagram reel with smooth transitions, text animations, and music sync. Perfect for product launches, promotions, or personal branding.",
+      "thumbnail": "/thumbnails/instagram-reel.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": true
+    },
+    {
+      "id": 5,
+      "category": "Ads",
+      "title": "Business Advertisement",
+      "shortDesc": "Professional business ad design",
+      "longDesc": "Clean and professional business advertisement with strong call-to-action, brand colors, and modern layout optimized for social media platforms.",
+      "thumbnail": "/thumbnails/business-ad.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 6,
+      "category": "Branding",
+      "title": "Brand Identity Package",
+      "shortDesc": "Complete brand identity set",
+      "longDesc": "Comprehensive brand identity package including logo variations, color palette, typography guidelines, and business card designs.",
+      "thumbnail": "/thumbnails/brand-identity.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 7,
+      "category": "Posters",
+      "title": "Event Promotion",
+      "shortDesc": "Eye-catching event poster",
+      "longDesc": "Bold event promotion poster with dynamic composition, attention-grabbing typography, and all essential event details prominently displayed.",
+      "thumbnail": "/thumbnails/event-poster.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 8,
+      "category": "Birthday Cards",
+      "title": "Kids Birthday Theme",
+      "shortDesc": "Fun kids birthday design",
+      "longDesc": "Playful and colorful birthday card designed for children, featuring cartoon characters, bright colors, and fun typography.",
+      "thumbnail": "/thumbnails/kids-birthday.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 9,
+      "category": "Wedding Invites",
+      "title": "Reception Card",
+      "shortDesc": "Modern reception invitation",
+      "longDesc": "Contemporary reception invitation with minimalist design, elegant fonts, and subtle decorative elements. Includes RSVP details and venue information.",
+      "thumbnail": "/thumbnails/reception-card.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 10,
+      "category": "Reels",
+      "title": "Product Showcase Reel",
+      "shortDesc": "Dynamic product reveal video",
+      "longDesc": "Professional product showcase reel with cinematic transitions, product highlights, and engaging motion graphics perfect for e-commerce brands.",
+      "thumbnail": "/thumbnails/product-reel.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": true
+    },
+    {
+      "id": 11,
+      "category": "Ads",
+      "title": "Social Media Ad",
+      "shortDesc": "Engaging social ad campaign",
+      "longDesc": "Strategic social media advertisement designed for maximum engagement, featuring compelling visuals, clear messaging, and strong conversion elements.",
+      "thumbnail": "/thumbnails/social-ad.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    },
+    {
+      "id": 12,
+      "category": "Branding",
+      "title": "Logo Design",
+      "shortDesc": "Custom logo creation",
+      "longDesc": "Professional custom logo design with multiple concepts, revisions, and final files in all formats. Includes brand mark, wordmark, and style guide.",
+      "thumbnail": "/thumbnails/logo-design.jpg",
+      "canvaLink": "https://www.canva.com/design/your-design-id",
+      "isVideo": false
+    }
+  ]
+}
