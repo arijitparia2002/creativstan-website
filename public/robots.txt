@@ -1,0 +1,22 @@
+# robots.txt for Creativstan
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://creativstan.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent overload)
+# Crawl-delay: 10
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

@@ -9,7 +9,8 @@
       "Bash(timeout 5 bash:*)",
       "Bash(npm uninstall:*)",
       "Bash(taskkill:*)",
-      "Bash(node update-colors.js:*)"
+      "Bash(node update-colors.js:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
