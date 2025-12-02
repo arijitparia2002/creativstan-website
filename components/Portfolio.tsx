@@ -3,11 +3,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import Image from 'next/image'
 import portfolioData from '@/config/portfolio.json'
 import { FaExternalLinkAlt, FaPlay } from 'react-icons/fa'
 
-const categories = ['All', 'Posters', 'Birthday Cards', 'Wedding Invites', 'Reels', 'Ads', 'Branding']
+const categories = ['All', 'Posters', 'Wedding Invites', 'Reels', 'YouTube Thumbnails', 'Religious/Cultural']
 
 type PortfolioItem = {
   id: number
@@ -15,7 +14,6 @@ type PortfolioItem = {
   title: string
   shortDesc: string
   longDesc: string
-  thumbnail: string
   canvaLink: string
   isVideo: boolean
 }
@@ -96,27 +94,36 @@ export default function Portfolio() {
               onClick={() => openCanvaLink(item.canvaLink)}
             >
               <div className="relative overflow-hidden rounded-xl bg-dark-800 border border-primary-navy/20 hover:border-primary-teal/50 transition-all duration-300">
-                {/* Image */}
+                {/* Canva Embed */}
                 <div className="relative aspect-[4/5]">
-                  <Image
-                    src={item.thumbnail}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  <iframe
+                    loading="lazy"
+                    style={{
+                      position: 'absolute',
+                      width: '100%',
+                      height: '100%',
+                      top: 0,
+                      left: 0,
+                      border: 'none',
+                      padding: 0,
+                      margin: 0,
+                    }}
+                    src={`https://www.canva.com/design/${item.canvaLink.split('/d/')[1]}/view?embed`}
+                    allowFullScreen
+                    allow="fullscreen"
                   />
 
                   {/* Video indicator */}
                   {item.isVideo && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
-                      <div className="w-16 h-16 rounded-full bg-primary-teal/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <FaPlay className="text-2xl text-white ml-1" />
+                    <div className="absolute top-4 right-4 z-10">
+                      <div className="w-10 h-10 rounded-full bg-primary-teal/90 flex items-center justify-center pointer-events-none">
+                        <FaPlay className="text-sm text-white ml-0.5" />
                       </div>
                     </div>
                   )}
 
                   {/* Hover overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-primary-navy/95 via-primary-navy/70 to-transparent transition-opacity duration-300 flex flex-col justify-end p-4 ${
+                  <div className={`absolute inset-0 bg-gradient-to-t from-primary-navy/95 via-primary-navy/70 to-transparent transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none ${
                     hoveredItem === item.id ? 'opacity-100' : 'opacity-0'
                   }`}>
                     <div>
