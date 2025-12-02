@@ -48,7 +48,7 @@ export function generateStructuredData() {
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens': '09:00',
+        opens: '09:00',
         closes: '21:00'
       },
       {
