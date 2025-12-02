@@ -17,6 +17,7 @@ type PortfolioItem = {
   longDesc: string
   thumbnail?: string
   canvaLink: string
+  embedCode?: string
   isVideo: boolean
 }
 
@@ -34,6 +35,21 @@ export default function Portfolio() {
 
   const openCanvaLink = (link: string) => {
     window.open(link, '_blank', 'noopener,noreferrer')
+  }
+
+  // Extract embed URL and aspect ratio from embedCode HTML
+  const parseEmbedCode = (embedCode?: string) => {
+    if (!embedCode) return null
+
+    // Extract src URL from iframe
+    const srcMatch = embedCode.match(/src="([^"]+)"/)
+    const embedUrl = srcMatch ? srcMatch[1] : null
+
+    // Extract padding-top percentage
+    const paddingMatch = embedCode.match(/padding-top:\s*([\d.]+)%/)
+    const aspectRatio = paddingMatch ? parseFloat(paddingMatch[1]) : 177.7778
+
+    return embedUrl ? { embedUrl, aspectRatio } : null
   }
 
   return (
@@ -96,49 +112,107 @@ export default function Portfolio() {
               onClick={() => openCanvaLink(item.canvaLink)}
             >
               <div className="relative overflow-hidden rounded-xl bg-dark-800 border border-primary-navy/20 hover:border-primary-teal/50 transition-all duration-300">
-                {/* Thumbnail */}
-                <div className="relative aspect-[4/5]">
-                  <Image
-                    src={item.thumbnail || '/thumbnails/placeholder.jpg'}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
+                {/* Canva Embed or Thumbnail */}
+                {(() => {
+                  const embedData = parseEmbedCode(item.embedCode)
+                  return embedData ? (
+                    /* Canva Embed */
+                    <div
+                      className="relative w-full overflow-hidden"
+                      style={{
+                        paddingTop: `${embedData.aspectRatio}%`,
+                        boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
+                        borderRadius: '8px',
+                        willChange: 'transform'
+                      }}
+                    >
+                      <iframe
+                        loading="lazy"
+                        style={{
+                          position: 'absolute',
+                          width: '100%',
+                          height: '100%',
+                          top: 0,
+                          left: 0,
+                          border: 'none',
+                          padding: 0,
+                          margin: 0
+                        }}
+                        src={embedData.embedUrl}
+                        allowFullScreen
+                        allow="fullscreen"
+                      />
 
-                  {/* Video indicator */}
-                  {item.isVideo && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
-                      <div className="w-16 h-16 rounded-full bg-primary-teal/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <FaPlay className="text-2xl text-white ml-1" />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Hover overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-primary-navy/95 via-primary-navy/70 to-transparent transition-opacity duration-300 flex flex-col justify-end p-4 ${
-                    hoveredItem === item.id ? 'opacity-100' : 'opacity-0'
-                  }`}>
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs text-primary-yellow/60 font-raleway bg-primary-navy/50 px-2 py-1 rounded">
-                          {item.category}
-                        </span>
-                        <FaExternalLinkAlt className="text-primary-yellow/60 text-sm" />
-                      </div>
-                      <h3 className="text-lg font-raleway font-bold text-white mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-300 line-clamp-2">
-                        {item.shortDesc}
-                      </p>
-                      <div className="mt-3 flex items-center gap-2 text-primary-yellow/60 text-sm font-semibold">
-                        <span>View in Canva</span>
-                        <FaExternalLinkAlt className="text-xs" />
+                    {/* Hover overlay for embeds */}
+                    <div className={`absolute inset-0 bg-gradient-to-t from-primary-navy/95 via-primary-navy/70 to-transparent transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none ${
+                      hoveredItem === item.id ? 'opacity-100' : 'opacity-0'
+                    }`}>
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xs text-primary-yellow/60 font-raleway bg-primary-navy/50 px-2 py-1 rounded">
+                            {item.category}
+                          </span>
+                          <FaExternalLinkAlt className="text-primary-yellow/60 text-sm" />
+                        </div>
+                        <h3 className="text-lg font-raleway font-bold text-white mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-gray-300 line-clamp-2">
+                          {item.shortDesc}
+                        </p>
+                        <div className="mt-3 flex items-center gap-2 text-primary-yellow/60 text-sm font-semibold">
+                          <span>View in Canva</span>
+                          <FaExternalLinkAlt className="text-xs" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                  ) : (
+                    /* Thumbnail Image */
+                    <div className="relative aspect-[4/5]">
+                      <Image
+                        src={item.thumbnail || '/thumbnails/placeholder.jpg'}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+
+                      {/* Video indicator */}
+                      {item.isVideo && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
+                          <div className="w-16 h-16 rounded-full bg-primary-teal/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <FaPlay className="text-2xl text-white ml-1" />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Hover overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-t from-primary-navy/95 via-primary-navy/70 to-transparent transition-opacity duration-300 flex flex-col justify-end p-4 ${
+                        hoveredItem === item.id ? 'opacity-100' : 'opacity-0'
+                      }`}>
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="text-xs text-primary-yellow/60 font-raleway bg-primary-navy/50 px-2 py-1 rounded">
+                              {item.category}
+                            </span>
+                            <FaExternalLinkAlt className="text-primary-yellow/60 text-sm" />
+                          </div>
+                          <h3 className="text-lg font-raleway font-bold text-white mb-1">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm text-gray-300 line-clamp-2">
+                            {item.shortDesc}
+                          </p>
+                          <div className="mt-3 flex items-center gap-2 text-primary-yellow/60 text-sm font-semibold">
+                            <span>View in Canva</span>
+                            <FaExternalLinkAlt className="text-xs" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })()}
 
                 {/* Quick info (always visible on mobile) */}
                 <div className="md:hidden bg-dark-900/80 p-3">
