@@ -26,8 +26,13 @@ export default function Portfolio() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [activeCategory, setActiveCategory] = useState('All')
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
+  const [loadedEmbeds, setLoadedEmbeds] = useState<Set<number>>(new Set())
 
   const portfolioItems: PortfolioItem[] = portfolioData.portfolioItems
+
+  const handleEmbedLoad = (itemId: number) => {
+    setLoadedEmbeds(prev => new Set(prev).add(itemId))
+  }
 
   const filteredItems = activeCategory === 'All'
     ? portfolioItems
@@ -102,10 +107,14 @@ export default function Portfolio() {
             <motion.div
               key={item.id}
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.03,
+                ease: "easeOut"
+              }}
               className="break-inside-avoid group relative cursor-pointer"
               onMouseEnter={() => setHoveredItem(item.id)}
               onMouseLeave={() => setHoveredItem(null)}
@@ -115,6 +124,7 @@ export default function Portfolio() {
                 {/* Canva Embed or Thumbnail */}
                 {(() => {
                   const embedData = parseEmbedCode(item.embedCode)
+                  const isLoaded = loadedEmbeds.has(item.id)
                   return embedData ? (
                     /* Canva Embed */
                     <div
@@ -126,6 +136,13 @@ export default function Portfolio() {
                         willChange: 'transform'
                       }}
                     >
+                      {/* Loading skeleton - subtle shimmer effect */}
+                      {!isLoaded && (
+                        <div className="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-700 to-dark-800 overflow-hidden">
+                          <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                        </div>
+                      )}
+
                       <iframe
                         loading="lazy"
                         style={{
@@ -136,11 +153,14 @@ export default function Portfolio() {
                           left: 0,
                           border: 'none',
                           padding: 0,
-                          margin: 0
+                          margin: 0,
+                          opacity: isLoaded ? 1 : 0,
+                          transition: 'opacity 0.5s ease-in-out'
                         }}
                         src={embedData.embedUrl}
                         allowFullScreen
                         allow="fullscreen"
+                        onLoad={() => handleEmbedLoad(item.id)}
                       />
 
                     {/* Hover overlay for embeds */}

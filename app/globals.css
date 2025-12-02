@@ -84,6 +84,16 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+/* Shimmer loading animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Particle effects */
 .particle {
   position: absolute;
