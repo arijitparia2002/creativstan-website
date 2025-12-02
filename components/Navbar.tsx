@@ -3,15 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-
-const navLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Contact', href: '#contact' },
-]
+import content from '@/config/content.json'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -36,6 +28,8 @@ export default function Navbar() {
     setIsMobileMenuOpen(false)
   }
 
+  const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
+
   return (
     <>
       <motion.nav
@@ -57,13 +51,13 @@ export default function Navbar() {
               onClick={() => scrollToSection('#')}
             >
               <h1 className="text-2xl md:text-3xl font-raleway text-gradient-primary">
-                CREATIVSTAN
+                {content.siteInfo.title.toUpperCase()}
               </h1>
             </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link, index) => (
+              {content.navbar.links.map((link, index) => (
                 <motion.button
                   key={index}
                   onClick={() => scrollToSection(link.href)}
@@ -75,14 +69,14 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <motion.a
-                href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/reel%20/invite"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get Started
+                {content.navbar.ctaButton}
               </motion.a>
             </div>
 
@@ -106,7 +100,7 @@ export default function Navbar() {
         className="fixed top-0 right-0 bottom-0 w-64 bg-dark-900 border-l border-primary-navy/30 z-50 md:hidden"
       >
         <div className="flex flex-col p-6 pt-24 gap-6">
-          {navLinks.map((link, index) => (
+          {content.navbar.links.map((link, index) => (
             <button
               key={index}
               onClick={() => scrollToSection(link.href)}
@@ -116,12 +110,12 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/reel%20/invite"
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 text-center"
           >
-            Get Started
+            {content.navbar.ctaButton}
           </a>
         </div>
       </motion.div>

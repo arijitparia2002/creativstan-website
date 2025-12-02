@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaArrowDown } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
+import content from '@/config/content.json'
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -64,7 +65,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-gradient-primary">CREATIVSTAN</span>
+            <span className="text-gradient-primary">{content.hero.title}</span>
           </motion.h1>
 
           <motion.p
@@ -73,7 +74,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Where Ideas Become Stunning Digital Creations
+            {content.hero.subtitle}
           </motion.p>
 
           <motion.p
@@ -82,7 +83,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Posters • Digital Invites • Wedding Cards • Reels • Ads • Branding
+            {content.hero.services}
           </motion.p>
 
           <motion.div
@@ -95,17 +96,17 @@ export default function Hero() {
               onClick={() => scrollToSection('portfolio')}
               className="px-8 py-4 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal-strong text-lg"
             >
-              View Portfolio
+              {content.hero.buttons.portfolio}
             </button>
 
             <a
-              href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/%20reel%20/%20invite"
+              href={`https://wa.me/91${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
             >
               <FaWhatsapp className="text-2xl" />
-              WhatsApp Me
+              {content.hero.buttons.whatsapp}
             </a>
           </motion.div>
         </motion.div>

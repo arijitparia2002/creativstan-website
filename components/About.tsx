@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FaPaintBrush, FaRocket, FaHeart } from 'react-icons/fa'
+import content from '@/config/content.json'
 
 export default function About() {
   const ref = useRef(null)
@@ -51,67 +52,42 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-5xl md:text-6xl font-raleway mb-6 text-gradient-primary">
-              ABOUT ME
+              {content.about.heading}
             </h2>
 
             <h3 className="text-3xl font-raleway font-bold mb-6 text-white">
-              Hi, I&apos;m Arijit — Your Personal Digital Creator
+              {content.about.title}
             </h3>
 
-            <p className="text-lg text-gray-300 mb-6 leading-relaxed font-raleway">
-              I design posters, reels, wedding invites, ads, branding content, and modern digital assets for individuals & businesses.
-            </p>
-
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed font-raleway">
-              With a passion for creativity and attention to detail, I transform your ideas into stunning visual experiences that captivate and inspire.
-            </p>
+            {content.about.paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-lg text-gray-300 mb-6 leading-relaxed font-raleway">
+                {paragraph}
+              </p>
+            ))}
 
             {/* Key features */}
             <div className="space-y-4">
-              <motion.div
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
-                  <FaRocket className="text-2xl text-primary-teal" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-raleway font-semibold mb-1 text-white">Fast Delivery</h4>
-                  <p className="text-gray-400">Quick turnaround without compromising on quality</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
-                  <FaPaintBrush className="text-2xl text-primary-teal" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-raleway font-semibold mb-1 text-white">Modern Designs</h4>
-                  <p className="text-gray-400">Trendy, eye-catching designs that stand out</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
-                  <FaHeart className="text-2xl text-primary-teal" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-raleway font-semibold mb-1 text-white">100% Custom Work</h4>
-                  <p className="text-gray-400">Every design is unique and tailored to your needs</p>
-                </div>
-              </motion.div>
+              {content.about.features.map((feature, index) => {
+                const icons = [FaRocket, FaPaintBrush, FaHeart]
+                const Icon = icons[index] || FaPaintBrush
+                return (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary-teal/20 rounded-lg flex items-center justify-center">
+                      <Icon className="text-2xl text-primary-teal" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-raleway font-semibold mb-1 text-white">{feature.title}</h4>
+                      <p className="text-gray-400">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
           </motion.div>
         </div>

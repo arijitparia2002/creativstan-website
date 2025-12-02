@@ -4,17 +4,21 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { FaWhatsapp, FaEnvelope, FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import content from '@/config/content.json'
 
 export default function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const socialLinks = [
-    { icon: FaInstagram, url: '#', label: 'Instagram', color: 'hover:text-pink-500' },
-    { icon: FaFacebook, url: '#', label: 'Facebook', color: 'hover:text-blue-500' },
-    { icon: FaTwitter, url: '#', label: 'Twitter', color: 'hover:text-sky-500' },
-    { icon: FaLinkedin, url: '#', label: 'LinkedIn', color: 'hover:text-blue-600' },
+    { icon: FaInstagram, url: content.socialMedia.instagram, label: 'Instagram', color: 'hover:text-pink-500' },
+    { icon: FaFacebook, url: content.socialMedia.facebook, label: 'Facebook', color: 'hover:text-blue-500' },
+    { icon: FaTwitter, url: content.socialMedia.twitter, label: 'Twitter', color: 'hover:text-sky-500' },
+    { icon: FaLinkedin, url: content.socialMedia.linkedin, label: 'LinkedIn', color: 'hover:text-blue-600' },
   ]
+
+  const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
+  const emailUrl = `mailto:${content.siteInfo.email}`
 
   return (
     <section id="contact" className="section-padding bg-gradient-to-b from-dark-800 to-dark-900 relative overflow-hidden">
@@ -31,13 +35,13 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-raleway mb-4 text-gradient-primary">
-            LET&apos;S CREATE TOGETHER
+            {content.contact.heading}
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 font-raleway max-w-3xl mx-auto mb-2">
-            Your ideas, my creativity — perfect digital magic
+            {content.contact.title}
           </p>
           <p className="text-lg text-gray-400 font-raleway">
-            Ready to bring your vision to life? Get in touch today!
+            {content.contact.subtitle}
           </p>
         </motion.div>
 
@@ -54,20 +58,20 @@ export default function Contact() {
                 <div>
                   <FaWhatsapp className="text-6xl text-white mb-6 group-hover:scale-110 transition-transform" />
                   <h3 className="text-3xl font-raleway font-bold text-white mb-4">
-                    Chat on WhatsApp
+                    {content.contact.whatsappCard.title}
                   </h3>
                   <p className="text-green-100 text-lg mb-6">
-                    Get instant responses and start your project today. Available 24/7 for your creative needs.
+                    {content.contact.whatsappCard.description}
                   </p>
                 </div>
                 <a
-                  href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/reel%20/invite"
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-gray-100 text-green-700 font-raleway font-bold rounded-xl transition-all duration-300 text-lg"
                 >
                   <FaWhatsapp className="text-2xl" />
-                  Start Chat Now
+                  {content.contact.whatsappCard.button}
                 </a>
               </div>
             </motion.div>
@@ -83,18 +87,18 @@ export default function Contact() {
                 <div>
                   <FaEnvelope className="text-6xl text-white mb-6 group-hover:scale-110 transition-transform" />
                   <h3 className="text-3xl font-raleway font-bold text-white mb-4">
-                    Send an Email
+                    {content.contact.emailCard.title}
                   </h3>
-                  <p className="text-primary-teal/20 text-lg mb-6">
-                    Prefer email? Drop us a message and we&apos;ll get back to you within 24 hours.
+                  <p className="text-gray-200 text-lg mb-6">
+                    {content.contact.emailCard.description}
                   </p>
                 </div>
                 <a
-                  href="mailto:creativstan@example.com"
+                  href={emailUrl}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-gray-100 text-primary-navy font-raleway font-bold rounded-xl transition-all duration-300 text-lg"
                 >
                   <FaEnvelope className="text-2xl" />
-                  Send Email
+                  {content.contact.emailCard.button}
                 </a>
               </div>
             </motion.div>
@@ -108,7 +112,7 @@ export default function Contact() {
             className="mt-16 text-center"
           >
             <p className="text-gray-400 mb-6 font-raleway text-lg">
-              Follow us on social media for daily inspiration
+              {content.contact.socialMediaText}
             </p>
             <div className="flex justify-center gap-6">
               {socialLinks.map((social, index) => {
@@ -141,20 +145,20 @@ export default function Contact() {
           >
             <div className="bg-dark-800/50 border border-primary-navy/30 rounded-xl p-8">
               <h4 className="text-2xl font-raleway font-bold text-white mb-4">
-                Working Hours
+                {content.contact.workingHours.title}
               </h4>
               <div className="grid md:grid-cols-3 gap-6 text-gray-400">
                 <div>
-                  <p className="font-semibold text-primary-teal mb-1">Monday - Friday</p>
-                  <p>9:00 AM - 9:00 PM</p>
+                  <p className="font-semibold text-primary-teal mb-1">{content.contact.workingHours.weekdays.label}</p>
+                  <p>{content.contact.workingHours.weekdays.hours}</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-primary-teal mb-1">Saturday - Sunday</p>
-                  <p>10:00 AM - 6:00 PM</p>
+                  <p className="font-semibold text-primary-teal mb-1">{content.contact.workingHours.weekends.label}</p>
+                  <p>{content.contact.workingHours.weekends.hours}</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-primary-teal mb-1">Emergency Projects</p>
-                  <p>24/7 Available</p>
+                  <p className="font-semibold text-primary-teal mb-1">{content.contact.workingHours.emergency.label}</p>
+                  <p>{content.contact.workingHours.emergency.hours}</p>
                 </div>
               </div>
             </div>

@@ -3,9 +3,12 @@
 import { motion } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
 import { useState } from 'react'
+import content from '@/config/content.json'
 
 export default function FloatingWhatsApp() {
   const [isHovered, setIsHovered] = useState(false)
+
+  const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
 
   return (
     <motion.div
@@ -15,7 +18,7 @@ export default function FloatingWhatsApp() {
       className="fixed bottom-6 right-6 z-50"
     >
       <motion.a
-        href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20create%20a%20poster%20/reel%20/invite"
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center"
@@ -30,7 +33,7 @@ export default function FloatingWhatsApp() {
           animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : 20 }}
           className="absolute right-full mr-4 px-4 py-2 bg-dark-800 border border-primary-teal/50 rounded-lg whitespace-nowrap pointer-events-none"
         >
-          <p className="text-white font-raleway font-semibold">Chat with us!</p>
+          <p className="text-white font-raleway font-semibold">{content.floatingWhatsApp.tooltip}</p>
           <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-primary-teal/50"></div>
         </motion.div>
 
