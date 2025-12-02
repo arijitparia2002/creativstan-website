@@ -10,7 +10,9 @@
       "Bash(npm uninstall:*)",
       "Bash(taskkill:*)",
       "Bash(node update-colors.js:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd production-ready SEO and deployment configuration\n\n- Add comprehensive metadata with Open Graph and Twitter Cards\n- Create structured data (JSON-LD) for Organization, ProfessionalService, Website, and Breadcrumb schemas\n- Add dynamic sitemap generation for better search engine indexing\n- Configure robots.txt with sitemap reference and bot rules\n- Add PWA manifest with brand colors and icon configuration\n- Create comprehensive deployment guide for creativstan.com\n- Update all domain references to creativstan.com\n- Enhance SEO with keywords, author info, and format detection\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix TypeScript syntax error in structured data\n\n- Fix typo in opens property (was opens'': ''09:00'', now opens: ''09:00'')\n- Resolves TypeScript compilation error in structured-data.tsx\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

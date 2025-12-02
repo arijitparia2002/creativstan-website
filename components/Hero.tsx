@@ -2,12 +2,40 @@
 
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaArrowDown } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' })
   }
+
+  // Generate particle data on client only to avoid hydration mismatch
+  const [particles, setParticles] = useState<Array<{
+    id: number
+    width: number
+    height: number
+    left: number
+    top: number
+    opacity: number
+    xMovement: number
+    duration: number
+  }>>([])
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        width: Math.random() * 6 + 2,
+        height: Math.random() * 6 + 2,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        opacity: Math.random() * 0.5 + 0.2,
+        xMovement: Math.random() * 20 - 10,
+        duration: Math.random() * 3 + 2,
+      }))
+    )
+  }, [])
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -99,30 +127,41 @@ export default function Hero() {
       </motion.div>
 
       {/* Floating particles */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="particle bg-primary-teal/100"
-            style={{
-              width: Math.random() * 6 + 2 + 'px',
-              height: Math.random() * 6 + 2 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              opacity: Math.random() * 0.5 + 0.2,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 20 - 10, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
-      </div>
+      {particles.length > 0 && (
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          {particles.map((particle) => (
+            <motion.div
+              key={particle.id}
+              className="particle bg-primary-teal/100"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: particle.opacity,
+                y: [0, -30, 0],
+                x: [0, particle.xMovement, 0],
+              }}
+              style={{
+                width: particle.width + 'px',
+                height: particle.height + 'px',
+                left: particle.left + '%',
+                top: particle.top + '%',
+              }}
+              transition={{
+                opacity: { duration: 0.5 },
+                y: {
+                  duration: particle.duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                },
+                x: {
+                  duration: particle.duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                },
+              }}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }
