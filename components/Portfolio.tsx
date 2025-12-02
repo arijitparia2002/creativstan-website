@@ -102,10 +102,25 @@ function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanva
               willChange: 'transform'
             }}
           >
-            {/* Loading skeleton */}
+            {/* Loading placeholder with logo */}
             {!isLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-700 to-dark-800 overflow-hidden">
-                <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-700 to-dark-800 flex items-center justify-center overflow-hidden">
+                <div className="relative z-10 flex flex-col items-center gap-4">
+                  <Image
+                    src="/thumbnails/creativstan.jpg"
+                    alt="Loading"
+                    width={120}
+                    height={120}
+                    className="rounded-lg opacity-80 animate-pulse"
+                  />
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 bg-primary-teal rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-primary-teal rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-primary-teal rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                </div>
+                {/* Subtle overlay shimmer */}
+                <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/3 to-transparent"></div>
               </div>
             )}
 
