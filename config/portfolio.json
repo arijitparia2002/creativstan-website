@@ -6,6 +6,7 @@
       "title": "Wedding Card for Groom",
       "shortDesc": "Elegant multi-page wedding invitation design",
       "longDesc": "A sophisticated 7-page wedding card specifically designed for the groom featuring traditional and contemporary elements with professional typography and elegant color schemes perfect for formal wedding ceremonies.",
+      "thumbnail": "/thumbnails/wedding-card.jpg",
       "canvaLink": "https://www.canva.com/d/gZnv---ct2ijK1a",
       "isVideo": false
     },
@@ -15,6 +16,7 @@
       "title": "Engagement Celebration Video",
       "shortDesc": "Dynamic engagement announcement reel",
       "longDesc": "A vibrant 7-page engagement video template with smooth transitions, animated elements, and celebratory effects. Perfect for sharing engagement announcements on Instagram Reels, TikTok, and other social media platforms.",
+      "thumbnail": "/thumbnails/engagement-video.jpg",
       "canvaLink": "https://www.canva.com/d/Bumrb2wR1zKNaXm",
       "isVideo": true
     },
@@ -24,6 +26,7 @@
       "title": "Mehandi Ceremony Card",
       "shortDesc": "Traditional mehandi celebration invitation",
       "longDesc": "A beautifully designed 7-page mehandi card blending traditional henna ceremony aesthetics with modern design elements. Features intricate patterns, warm color palettes, and customizable text for mehandi event details.",
+      "thumbnail": "/thumbnails/mehandi-card.jpg",
       "canvaLink": "https://www.canva.com/d/0wButoDuPI3gHl-",
       "isVideo": false
     },
@@ -33,6 +36,7 @@
       "title": "Zoo Promotional Campaign",
       "shortDesc": "Educational zoo attraction poster series",
       "longDesc": "A comprehensive 12-page poster series promoting a zoo attraction with engaging visuals of wildlife and nature. Designed for both digital and print use with informative layouts and eye-catching imagery perfect for promotional campaigns.",
+      "thumbnail": "/thumbnails/zoo-poster.jpg",
       "canvaLink": "https://www.canva.com/d/njoLqqJBSZzf4p0",
       "isVideo": false
     },
@@ -42,6 +46,7 @@
       "title": "Gender Reveal Announcement Video",
       "shortDesc": "Celebratory gender reveal mobile video",
       "longDesc": "A heartwarming 5-page gender reveal video featuring blue and pink flat design elements with smooth animations. Perfect for announcing baby gender to family and friends across social media platforms with engaging visual effects.",
+      "thumbnail": "/thumbnails/gender-reveal.jpg",
       "canvaLink": "https://www.canva.com/d/6Zl61_hTDqLSZAE",
       "isVideo": true
     },
@@ -51,6 +56,7 @@
       "title": "Zoo Promotional Video Template",
       "shortDesc": "Long-form zoo showcase video series",
       "longDesc": "An extensive 31-page video template showcasing zoo attractions with multiple video segments, transitions, and engaging motion graphics. Ideal for creating professional promotional videos for wildlife attractions and educational content.",
+      "thumbnail": "/thumbnails/zoo-video.jpg",
       "canvaLink": "https://www.canva.com/d/tUQHuJCczpIr7HR",
       "isVideo": true
     },
@@ -60,6 +66,7 @@
       "title": "Multi-Purpose Event Poster Collection",
       "shortDesc": "Versatile 10-page poster template set",
       "longDesc": "A flexible 10-page poster collection with various layouts and design variations suitable for multiple event types. Features modern typography, vibrant color schemes, and customizable sections for different promotional needs.",
+      "thumbnail": "/thumbnails/event-poster-1.jpg",
       "canvaLink": "https://www.canva.com/d/yM88-qgCGJdKO4y",
       "isVideo": false
     },
@@ -69,6 +76,7 @@
       "title": "YouTube Video Thumbnail Design",
       "shortDesc": "Eye-catching video thumbnail pack",
       "longDesc": "A 6-page collection of attention-grabbing YouTube thumbnails with bold typography, contrasting colors, and clear visual hierarchy. Designed to maximize click-through rates with professional composition and engaging elements.",
+      "thumbnail": "/thumbnails/youtube-thumb.jpg",
       "canvaLink": "https://www.canva.com/d/PMb_tjrla-U_w_Z",
       "isVideo": false
     },
@@ -78,6 +86,7 @@
       "title": "Event Poster Template - Modern Design",
       "shortDesc": "Contemporary event promotion poster",
       "longDesc": "A modern 3-page event poster template with sleek design elements, bold typography, and professional color grading. Perfect for concerts, parties, conferences, and other events requiring eye-catching promotional materials.",
+      "thumbnail": "/thumbnails/event-poster-2.jpg",
       "canvaLink": "https://www.canva.com/d/Oql0VPOzvUohO15",
       "isVideo": false
     },
@@ -87,6 +96,7 @@
       "title": "Sundar Kand Devotional Design",
       "shortDesc": "Religious text decorative poster",
       "longDesc": "A beautifully crafted single-page design dedicated to Sundar Kand with traditional religious aesthetic elements. Features elegant typography and traditional Indian design motifs perfect for spiritual or devotional sharing.",
+      "thumbnail": "/thumbnails/sundar-kand.jpg",
       "canvaLink": "https://www.canva.com/d/C5WqTzeWvlIhr5J",
       "isVideo": false
     },
@@ -96,6 +106,7 @@
       "title": "Event Poster Design - Minimalist Style",
       "shortDesc": "Sleek single-page event poster",
       "longDesc": "A minimalist single-page poster template with clean lines, sophisticated typography, and ample white space. Ideal for corporate events, product launches, or professional gatherings requiring an elegant promotional design.",
+      "thumbnail": "/thumbnails/event-poster-3.jpg",
       "canvaLink": "https://www.canva.com/d/FCn9IQj419o87aK",
       "isVideo": false
     },
@@ -105,6 +116,7 @@
       "title": "Professional Event Poster Design",
       "shortDesc": "Bold promotional poster template",
       "longDesc": "A dynamic 7-page poster collection with bold design elements, vibrant colors, and striking visual compositions. Features multiple layout variations suitable for various event types and promotional campaigns.",
+      "thumbnail": "/thumbnails/event-poster-4.jpg",
       "canvaLink": "https://www.canva.com/d/L77R5thoalkpT3M",
       "isVideo": false
     },
@@ -114,6 +126,7 @@
       "title": "Contemporary Event Poster",
       "shortDesc": "Modern single-page event design",
       "longDesc": "A contemporary single-page poster with modern design principles, refined typography, and professional aesthetic. Perfect for showcasing events with a focus on clean design and visual impact.",
+      "thumbnail": "/thumbnails/event-poster-5.jpg",
       "canvaLink": "https://www.canva.com/d/h7QIxEiwj1SOoys",
       "isVideo": false
     }
