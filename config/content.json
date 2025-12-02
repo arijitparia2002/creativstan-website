@@ -50,7 +50,7 @@
   "portfolio": {
     "heading": "PORTFOLIO",
     "subtitle": "Explore our creative work. Click any design to view and edit in Canva!",
-    "proTip": "💡 Pro Tip: Click on any design to view and customize it in Canva!",
+    "proTip": "💡 Pro Tip: Click on any design to view for customisation DM us",
     "ctaText": "Love what you see? Let's create something amazing for you!",
     "ctaButton": "Order Custom Design"
   },
@@ -70,7 +70,7 @@
     "subtitle": "We don't just create designs — we bring your vision to life with passion and precision",
     "stats": [
       {
-        "number": "15+",
+        "number": "100+",
         "label": "Happy Clients"
       },
       {
@@ -94,7 +94,7 @@
     "trustBadges": {
       "rating": "4.9/5",
       "ratingLabel": "Average Rating",
-      "clients": "300+",
+      "clients": "100+",
       "clientsLabel": "Happy Clients",
       "satisfaction": "100%",
       "satisfactionLabel": "Satisfaction"
