@@ -1,0 +1,186 @@
+{
+  "siteInfo": {
+    "title": "Creativstan",
+    "tagline": "Where Ideas Become Stunning Digital Creations",
+    "description": "Professional digital creator specializing in posters, wedding invites, reels, ads, and branding. Fast delivery. Modern designs. 100% custom creative work.",
+    "whatsappNumber": "6389071010",
+    "email": "shardulipandey8090@gmail.com"
+  },
+
+  "hero": {
+    "title": "CREATIVSTAN",
+    "subtitle": "Where Ideas Become Stunning Digital Creations",
+    "services": "Posters • Digital Invites • Wedding Cards • Reels • Ads • Branding",
+    "buttons": {
+      "portfolio": "View Portfolio",
+      "whatsapp": "WhatsApp Me"
+    }
+  },
+
+  "about": {
+    "heading": "ABOUT ME",
+    "title": "Hi, I'm Sharduli — Your Personal Digital Creator",
+    "paragraphs": [
+      "I design posters, reels, wedding invites, ads, branding content, and modern digital assets for individuals & businesses.",
+      "With a passion for creativity and attention to detail, I transform your ideas into stunning visual experiences that captivate and inspire."
+    ],
+    "features": [
+      {
+        "title": "Fast Delivery",
+        "description": "Quick turnaround without compromising on quality"
+      },
+      {
+        "title": "Modern Designs",
+        "description": "Trendy, eye-catching designs that stand out"
+      },
+      {
+        "title": "100% Custom Work",
+        "description": "Every design is unique and tailored to your needs"
+      }
+    ]
+  },
+
+  "services": {
+    "heading": "OUR SERVICES",
+    "subtitle": "From posters to reels, we create stunning digital content that makes you stand out",
+    "customNote": "Need something custom? Let's talk!",
+    "customButton": "Contact for Custom Projects"
+  },
+
+  "portfolio": {
+    "heading": "PORTFOLIO",
+    "subtitle": "Explore our creative work. Click any design to view and edit in Canva!",
+    "proTip": "💡 Pro Tip: Click on any design to view and customize it in Canva!",
+    "ctaText": "Love what you see? Let's create something amazing for you!",
+    "ctaButton": "Order Custom Design"
+  },
+
+  "pricing": {
+    "heading": "PRICING",
+    "subtitle": "Transparent pricing for high-quality creative work. All packages include premium support.",
+    "customPackage": {
+      "title": "Need a Custom Package?",
+      "description": "Every project is unique. Get a personalized quote for bulk orders, premium services, or special requirements.",
+      "button": "Get Custom Quote"
+    }
+  },
+
+  "whyChooseUs": {
+    "heading": "WHY CHOOSE CREATIVSTAN?",
+    "subtitle": "We don't just create designs — we bring your vision to life with passion and precision",
+    "stats": [
+      {
+        "number": "15+",
+        "label": "Happy Clients"
+      },
+      {
+        "number": "100+",
+        "label": "Projects Done"
+      },
+      {
+        "number": "24hrs",
+        "label": "Avg Delivery"
+      },
+      {
+        "number": "100%",
+        "label": "Satisfaction"
+      }
+    ]
+  },
+
+  "testimonials": {
+    "heading": "CLIENT TESTIMONIALS",
+    "subtitle": "Don't just take our word for it — hear from our satisfied clients",
+    "trustBadges": {
+      "rating": "4.9/5",
+      "ratingLabel": "Average Rating",
+      "clients": "300+",
+      "clientsLabel": "Happy Clients",
+      "satisfaction": "100%",
+      "satisfactionLabel": "Satisfaction"
+    }
+  },
+
+  "contact": {
+    "heading": "LET'S CREATE TOGETHER",
+    "title": "Your ideas, my creativity — perfect digital magic",
+    "subtitle": "Ready to bring your vision to life? Get in touch today!",
+    "whatsappCard": {
+      "title": "Chat on WhatsApp",
+      "description": "Get instant responses and start your project today. Available 24/7 for your creative needs.",
+      "button": "Start Chat Now"
+    },
+    "emailCard": {
+      "title": "Send an Email",
+      "description": "Prefer email? Drop us a message and we'll get back to you within 24 hours.",
+      "button": "Send Email"
+    },
+    "socialMediaText": "Follow us on social media for daily inspiration",
+    "workingHours": {
+      "title": "Working Hours",
+      "weekdays": {
+        "label": "Monday - Friday",
+        "hours": "9:00 AM - 9:00 PM"
+      },
+      "weekends": {
+        "label": "Saturday - Sunday",
+        "hours": "10:00 AM - 6:00 PM"
+      },
+      "emergency": {
+        "label": "Emergency Projects",
+        "hours": "24/7 Available"
+      }
+    }
+  },
+
+  "footer": {
+    "description": "Your personal digital creator for posters, reels, wedding invites, ads, and branding. Fast delivery. Modern designs. 100% custom work.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "links": ["About", "Services", "Portfolio", "Pricing", "Contact"]
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        "Birthday Posters",
+        "Wedding Invites",
+        "Business Ads",
+        "Reels Creation",
+        "Logo & Branding"
+      ]
+    },
+    "copyright": "Creativstan. All rights reserved.",
+    "madeWith": "Made with"
+  },
+
+  "floatingWhatsApp": {
+    "tooltip": "Chat with us!"
+  },
+
+  "navbar": {
+    "links": [
+      { "name": "Home", "href": "#" },
+      { "name": "About", "href": "#about" },
+      { "name": "Services", "href": "#services" },
+      { "name": "Portfolio", "href": "#portfolio" },
+      { "name": "Pricing", "href": "#pricing" },
+      { "name": "Contact", "href": "#contact" }
+    ],
+    "ctaButton": "Get Started"
+  },
+
+  "socialMedia": {
+    "instagram": "#",
+    "facebook": "#",
+    "twitter": "#",
+    "linkedin": "#"
+  },
+
+  "whatsappMessages": {
+    "general": "Hi I want to create a poster / reel / invite",
+    "portfolio": "Hi I saw your portfolio and want to create something similar",
+    "service": "Hi I want to order",
+    "custom": "Hi I have a custom project in mind",
+    "customPackage": "Hi I need a custom package quote"
+  }
+}
