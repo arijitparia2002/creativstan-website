@@ -344,7 +344,7 @@ export default function Portfolio() {
         >
           <div className="inline-block bg-dark-800/50 border border-primary-navy/30 rounded-xl px-6 py-4">
             <p className="text-gray-400 font-raleway">
-              <span className="text-primary-teal font-semibold">💡 Pro Tip:</span> Click on any design to view and customize it in Canva!
+              <span className="text-primary-teal font-semibold">💡 Pro Tip:</span> Click on any design to view it in Canva!
             </p>
           </div>
         </motion.div>
