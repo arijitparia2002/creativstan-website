@@ -102,25 +102,86 @@ function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanva
               willChange: 'transform'
             }}
           >
-            {/* Loading placeholder with logo */}
+            {/* Premium loading placeholder */}
             {!isLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-700 to-dark-800 flex items-center justify-center overflow-hidden">
-                <div className="relative z-10 flex flex-col items-center gap-4">
-                  <Image
-                    src="/thumbnails/creativstan.jpg"
-                    alt="Loading"
-                    width={120}
-                    height={120}
-                    className="rounded-lg opacity-80 animate-pulse"
-                  />
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-primary-teal rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2 h-2 bg-primary-teal rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2 h-2 bg-primary-teal rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                  </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 flex items-center justify-center overflow-hidden">
+                {/* Animated background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-teal/5 via-transparent to-primary-navy/5 animate-pulse"></div>
+
+                {/* Expanding rings effect */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-32 h-32 rounded-full border-2 border-primary-teal/30 animate-[ringExpand_3s_ease-out_infinite]"></div>
+                  <div className="w-32 h-32 rounded-full border-2 border-primary-teal/30 animate-[ringExpand_3s_ease-out_infinite_1s] absolute"></div>
                 </div>
-                {/* Subtle overlay shimmer */}
-                <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/3 to-transparent"></div>
+
+                {/* Floating particles */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute bottom-0 w-1 h-1 rounded-full bg-primary-teal/40"
+                      style={{
+                        left: `${15 + i * 12}%`,
+                        animation: `particleFloat ${3 + i * 0.5}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.4}s`
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Main content */}
+                <div className="relative z-10 flex flex-col items-center gap-6">
+                  {/* Logo with floating animation and glow */}
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="relative"
+                  >
+                    <div className="absolute inset-0 bg-primary-teal/20 blur-2xl rounded-full animate-pulse"></div>
+                    <Image
+                      src="/thumbnails/creativstan.jpg"
+                      alt="Loading"
+                      width={140}
+                      height={140}
+                      className="rounded-xl relative z-10 shadow-2xl"
+                      style={{
+                        animation: 'logoFloat 3s ease-in-out infinite'
+                      }}
+                    />
+                  </motion.div>
+
+                  {/* Progress bar with gradient */}
+                  <div className="w-48 h-1.5 bg-dark-700 rounded-full overflow-hidden relative">
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{
+                        background: 'linear-gradient(90deg, #2A9D8F 0%, #E9C46A 50%, #F4A261 75%, #E76F51 100%)',
+                        animation: 'progressGlow 2s ease-in-out infinite'
+                      }}
+                      initial={{ width: '0%' }}
+                      animate={{ width: '100%' }}
+                      transition={{
+                        duration: 2,
+                        ease: "easeInOut",
+                        repeat: Infinity
+                      }}
+                    />
+                  </div>
+
+                  {/* Loading text with gradient */}
+                  <motion.p
+                    className="text-sm font-raleway font-medium text-gradient-primary"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    Loading masterpiece...
+                  </motion.p>
+                </div>
+
+                {/* Shimmer overlay */}
+                <div className="absolute inset-0 -translate-x-full animate-[shimmer_3s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
               </div>
             )}
 
