@@ -152,7 +152,7 @@ export default function Pricing() {
                   className={`block w-full text-center px-6 py-3 rounded-lg font-raleway font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                     plan.popular
                       ? 'bg-white text-primary-navy hover:bg-gray-100'
-                      : 'bg-primary-teal text-white hover:bg-primary-navy'
+                      : 'bg-primary-teal text-white hover:brightness-110'
                   }`}
                 >
                   <FaWhatsapp className="text-xl" />

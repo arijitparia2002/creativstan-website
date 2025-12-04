@@ -42,7 +42,7 @@ export default function Footer() {
               </a>
               <a
                 href={emailUrl}
-                className="flex items-center gap-2 px-4 py-2 bg-primary-teal hover:bg-primary-navy text-white rounded-lg transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 bg-primary-teal hover:brightness-110 text-white rounded-lg transition-all duration-300"
               >
                 <FaEnvelope className="text-xl" />
                 Email

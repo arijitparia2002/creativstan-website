@@ -208,24 +208,26 @@ function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanva
               />
             )}
 
-            {/* Hover overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-t from-primary-navy/95 via-primary-navy/70 to-transparent transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none ${
+            {/* Hover overlay - light and clean */}
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent transition-all duration-300 flex flex-col justify-end p-4 pointer-events-none ${
               hoveredItem === item.id ? 'opacity-100' : 'opacity-0'
             }`}>
-              <div>
+              <div className="transform transition-transform duration-300" style={{
+                transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(10px)'
+              }}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-primary-yellow/60 font-raleway bg-primary-navy/50 px-2 py-1 rounded">
+                  <span className="text-xs text-white font-raleway bg-primary-teal/90 backdrop-blur-sm px-3 py-1 rounded-lg shadow-lg">
                     {item.category}
                   </span>
-                  <FaExternalLinkAlt className="text-primary-yellow/60 text-sm" />
+                  <FaExternalLinkAlt className="text-white text-sm drop-shadow-lg" />
                 </div>
-                <h3 className="text-lg font-raleway font-bold text-white mb-1">
+                <h3 className="text-xl font-raleway font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-300 line-clamp-2">
+                <p className="text-sm text-white/95 line-clamp-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   {item.shortDesc}
                 </p>
-                <div className="mt-3 flex items-center gap-2 text-primary-yellow/60 text-sm font-semibold">
+                <div className="mt-4 inline-flex items-center gap-2 bg-primary-teal hover:brightness-110 px-4 py-2 rounded-lg text-white text-sm font-semibold shadow-lg transition-all duration-300 hover:scale-105">
                   <span>View in Canva</span>
                   <FaExternalLinkAlt className="text-xs" />
                 </div>
@@ -363,7 +365,7 @@ export default function Portfolio() {
             href="https://wa.me/919876543210?text=Hi%20I%20saw%20your%20portfolio%20and%20want%20to%20create%20something%20similar"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
+            className="inline-block px-8 py-3 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
           >
             Order Custom Design
           </a>

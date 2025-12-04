@@ -145,7 +145,7 @@ export default function Services() {
                       href={`https://wa.me/919876543210?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(service.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block w-full text-center px-4 py-2 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-medium rounded-lg transition-all duration-300 group-hover:scale-105"
+                      className="inline-block w-full text-center px-4 py-2 bg-primary-teal hover:brightness-110 text-white font-raleway font-medium rounded-lg transition-all duration-300 group-hover:scale-105"
                     >
                       DM to Order
                     </a>
@@ -173,7 +173,7 @@ export default function Services() {
             href="https://wa.me/919876543210?text=Hi%20I%20have%20a%20custom%20project%20in%20mind"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-primary-teal to-primary-navy hover:from-primary-navy hover:to-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
+            className="inline-block px-8 py-3 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
           >
             Contact for Custom Projects
           </a>

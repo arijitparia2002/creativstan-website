@@ -94,7 +94,7 @@ export default function Hero() {
           >
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="px-8 py-4 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal-strong text-lg"
+              className="px-8 py-4 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal-strong text-lg"
             >
               {content.hero.buttons.portfolio}
             </button>

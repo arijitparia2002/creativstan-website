@@ -72,7 +72,7 @@ export default function Navbar() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300"
+                className="px-6 py-2 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -113,7 +113,7 @@ export default function Navbar() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-primary-teal hover:bg-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 text-center"
+            className="px-6 py-3 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300 text-center"
           >
             {content.navbar.ctaButton}
           </a>
