@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
+import VideoStories from '@/components/VideoStories'
 import Pricing from '@/components/Pricing'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import Testimonials from '@/components/Testimonials'
@@ -20,6 +21,7 @@ export default function Home() {
       <About />
       <Services />
       <Portfolio />
+      <VideoStories />
       <Pricing />
       <WhyChooseUs />
       <Testimonials />

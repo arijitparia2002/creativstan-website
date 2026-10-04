@@ -1,92 +1,32 @@
 'use client'
 
-import { FaWhatsapp, FaEnvelope, FaHeart } from 'react-icons/fa'
+import { FaArrowUp, FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 import content from '@/config/content.json'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
-  const emailUrl = `mailto:${content.siteInfo.email}`
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
-    <footer className="bg-dark-900 border-t border-primary-navy/30 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl"></div>
-
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand column */}
-          <div className="md:col-span-2">
-            <h2 className="text-3xl font-raleway text-gradient-primary mb-4">
-              {content.siteInfo.title.toUpperCase()}
-            </h2>
-            <p className="text-gray-400 mb-6 max-w-md">
-              {content.footer.description}
-            </p>
-            <div className="flex gap-4">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all duration-300"
-              >
-                <FaWhatsapp className="text-xl" />
-                WhatsApp
-              </a>
-              <a
-                href={emailUrl}
-                className="flex items-center gap-2 px-4 py-2 bg-primary-teal hover:brightness-110 text-white rounded-lg transition-all duration-300"
-              >
-                <FaEnvelope className="text-xl" />
-                Email
-              </a>
-            </div>
-          </div>
-
-          {/* Quick links */}
+    <footer className="dark-footer border-t border-[#3A302B] py-12">
+      <div className="editorial-container">
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
           <div>
-            <h3 className="text-xl font-raleway font-bold text-white mb-4">{content.footer.quickLinks.title}</h3>
-            <ul className="space-y-2">
-              {content.footer.quickLinks.links.map((link) => (
-                <li key={link}>
-                  <button
-                    onClick={() => scrollToSection(`#${link.toLowerCase()}`)}
-                    className="text-gray-400 hover:text-primary-teal transition-colors"
-                  >
-                    {link}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <button onClick={scrollToTop} className="brand-wordmark text-5xl lowercase">{content.siteInfo.title}</button>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-[var(--muted)]">{content.footer.description}</p>
           </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-xl font-raleway font-bold text-white mb-4">{content.footer.services.title}</h3>
-            <ul className="space-y-2 text-gray-400">
-              {content.footer.services.items.map((service) => (
-                <li key={service}>{service}</li>
-              ))}
-            </ul>
+          <div className="flex flex-wrap items-center gap-5 text-xs font-bold uppercase tracking-[0.12em]">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]"><FaWhatsapp /> WhatsApp</a>
+            <a href={`mailto:${content.siteInfo.email}`} className="inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]"><FaEnvelope /> Email</a>
+            <a href={content.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]"><FaInstagram /> Instagram</a>
+            <button onClick={scrollToTop} className="ml-2 inline-flex items-center gap-2 border-l border-[var(--border)] pl-5 transition-colors hover:text-[var(--accent)]" aria-label="Back to top">Top <FaArrowUp /></button>
           </div>
         </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-primary-navy/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm text-center md:text-left">
-            © {currentYear} {content.footer.copyright}
-          </p>
-          <p className="text-gray-500 text-sm flex items-center gap-2">
-            {content.footer.madeWith} <FaHeart className="text-primary-teal/100" /> by {content.siteInfo.title}
-          </p>
+        <div className="mt-12 grid gap-8 border-t border-[var(--border)] pt-8 text-sm md:grid-cols-2">
+          <div><p className="editorial-label mb-4">{content.footer.quickLinks.title}</p><div className="flex flex-wrap gap-x-5 gap-y-2 text-[var(--muted)]">{content.footer.quickLinks.links.map((link) => <a key={link} href={`#${link.toLowerCase()}`} className="transition-colors hover:text-[var(--foreground)]">{link}</a>)}</div></div>
+          <div><p className="editorial-label mb-4">{content.footer.services.title}</p><p className="leading-relaxed text-[var(--muted)]">{content.footer.services.items.join(' / ')}</p></div>
         </div>
+        <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[var(--border)] pt-5 text-xs text-[var(--muted)] md:flex-row"><span>© {new Date().getFullYear()} {content.footer.copyright}</span><span>{content.footer.madeWith} by {content.siteInfo.title}</span></div>
       </div>
     </footer>
   )

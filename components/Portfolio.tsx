@@ -38,7 +38,14 @@ function useLazyEmbed(itemId: number) {
   return { embedRef, shouldLoad }
 }
 
-const categories = ['All', 'Posters', 'Wedding Invites', 'Reels', 'YouTube Thumbnails', 'Religious/Cultural']
+const categories = [
+  { label: 'All', value: 'All' },
+  { label: 'Posters', value: 'Posters' },
+  { label: 'Wedding', value: 'Wedding Invites' },
+  { label: 'Reels', value: 'Reels' },
+  { label: 'YouTube', value: 'YouTube Thumbnails' },
+  { label: 'Cultural', value: 'Religious/Cultural' },
+]
 
 type PortfolioItem = {
   id: number
@@ -51,6 +58,8 @@ type PortfolioItem = {
   embedCode?: string
   isVideo: boolean
 }
+
+const projectAction = (item: PortfolioItem) => item.isVideo ? (item.title === 'Demo Film' ? 'Watch Film' : 'Watch Reel') : 'View Project'
 
 // Portfolio Item Component with lazy loading
 function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanvaLink }: {
@@ -94,9 +103,8 @@ function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanva
         {embedData ? (
           <div
             ref={embedRef}
-            className="relative w-full overflow-hidden"
+            className="relative h-[min(70vh,620px)] w-full max-w-[520px] overflow-hidden"
             style={{
-              paddingTop: `${embedData.aspectRatio}%`,
               boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)',
               borderRadius: '8px',
               willChange: 'transform'
@@ -228,7 +236,7 @@ function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanva
                   {item.shortDesc}
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 bg-primary-teal hover:brightness-110 px-4 py-2 rounded-lg text-white text-sm font-semibold shadow-lg transition-all duration-300 hover:scale-105">
-                  <span>View in Canva</span>
+                  <span>{projectAction(item)}</span>
                   <FaExternalLinkAlt className="text-xs" />
                 </div>
               </div>
@@ -280,22 +288,18 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="section-padding bg-gradient-to-b from-dark-800 to-dark-900 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="portfolio" className="section-padding relative overflow-hidden">
+      <div className="editorial-container">
         {/* Section header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end"
         >
-          <h2 className="text-5xl md:text-6xl font-raleway mb-4 text-gradient-primary">
-            PORTFOLIO
-          </h2>
-          <p className="text-xl text-gray-400 font-raleway max-w-2xl mx-auto">
-            Explore our creative work. Click any design to view and edit in Canva!
-          </p>
+          <div><p className="editorial-label mb-5">Selected work / {String(filteredItems.length).padStart(2, '0')} pieces</p><h2 className="display-serif text-6xl leading-none md:text-8xl">The portfolio.</h2></div>
+          <p className="max-w-xs text-sm leading-relaxed text-[var(--muted)] md:text-right">Explore the work. Each piece opens in Canva for a closer look and customisation.</p>
         </motion.div>
 
         {/* Category tabs */}
@@ -303,19 +307,19 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="mb-12 flex flex-wrap gap-x-6 gap-y-3 border-b border-[var(--border)] pb-5"
         >
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-raleway font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-primary-teal text-white glow-teal'
-                  : 'bg-dark-800 text-gray-400 hover:bg-primary-teal/20 hover:text-primary-teal'
+              key={category.value}
+              onClick={() => setActiveCategory(category.value)}
+              className={`pb-1 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 ${
+                activeCategory === category.value
+                  ? 'border-b border-[var(--foreground)] text-[var(--foreground)]'
+                  : 'text-[var(--muted)] hover:text-[var(--foreground)]'
               }`}
             >
-              {category}
+              {category.label}
             </button>
           ))}
         </motion.div>
@@ -323,7 +327,7 @@ export default function Portfolio() {
         {/* Portfolio grid */}
         <motion.div
           layout
-          className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
+          className="columns-1 gap-10 space-y-10 md:columns-2 md:gap-16 md:space-y-16"
         >
           {filteredItems.map((item, index) => (
             <PortfolioItemCard
@@ -344,9 +348,9 @@ export default function Portfolio() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <div className="inline-block bg-dark-800/50 border border-primary-navy/30 rounded-xl px-6 py-4">
-            <p className="text-gray-400 font-raleway">
-              <span className="text-primary-teal font-semibold">💡 Pro Tip:</span> Click on any design to view it in Canva!
+          <div className="inline-block border-y border-[var(--border)] px-6 py-4">
+            <p className="text-sm text-[var(--muted)]">
+              <span className="font-semibold text-[var(--foreground)]">Open a piece</span> to view it in Canva.
             </p>
           </div>
         </motion.div>
@@ -365,7 +369,7 @@ export default function Portfolio() {
             href="https://wa.me/919876543210?text=Hi%20I%20saw%20your%20portfolio%20and%20want%20to%20create%20something%20similar"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
+            className="inline-flex items-center border-b border-[var(--foreground)] pb-2 text-sm font-bold uppercase tracking-[0.12em] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             Order Custom Design
           </a>

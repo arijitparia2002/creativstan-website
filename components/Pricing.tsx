@@ -1,193 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { FaCheck, FaWhatsapp, FaStar } from 'react-icons/fa'
+import { FaArrowRight, FaWhatsapp } from 'react-icons/fa'
+import content from '@/config/content.json'
 
 const pricingPlans = [
-  {
-    name: 'Basic Poster',
-    price: '₹199',
-    description: 'Perfect for simple designs',
-    features: [
-      '1 simple design',
-      'Basic editing',
-      '24hr delivery',
-      'HD quality',
-      '1 revision'
-    ],
-    popular: false,
-    gradient: 'from-primary-navy to-primary-navy',
-  },
-  {
-    name: 'Professional Poster',
-    price: '₹399',
-    description: 'Most popular choice',
-    features: [
-      'Premium design',
-      'Custom elements',
-      '12hr delivery',
-      'Ultra HD quality',
-      'Unlimited revisions',
-      'Source files included'
-    ],
-    popular: true,
-    gradient: 'from-primary-teal to-primary-navy',
-  },
-  {
-    name: 'Premium Reel',
-    price: '₹799',
-    description: 'Stand out on social media',
-    features: [
-      '10-12 sec video',
-      'Professional transitions',
-      'Music sync',
-      'Motion graphics',
-      'Same day delivery',
-      'Multiple formats'
-    ],
-    popular: false,
-    gradient: 'from-primary-navy to-primary-navy',
-  },
-  {
-    name: 'Wedding Invite',
-    price: '₹499',
-    description: 'Make your day special',
-    features: [
-      'Custom theme design',
-      'Animated elements',
-      'Background music',
-      'Multiple ceremony cards',
-      '2 revisions',
-      'Print-ready files'
-    ],
-    popular: false,
-    gradient: 'from-primary-navy to-primary-navy',
-  },
+  { name: 'Basic Poster', price: 'Starts at ₹199', description: 'For simple, clean designs.', features: ['1 custom design', 'Basic editing', 'HD output', '1 revision', '24-hour delivery'], cta: 'Order Poster' },
+  { name: 'Professional Poster', price: 'Starts at ₹399', description: 'For designs that need a little more.', features: ['Premium composition', 'Custom elements', 'Ultra HD output', 'Unlimited revisions', 'Source files', 'Up to 12-hour delivery'], cta: 'Choose This', popular: true },
+  { name: 'Premium Reel', price: 'Starts at ₹599', description: 'For social content that moves.', features: ['10-12 second reel', 'Smooth transitions', 'Music sync', 'Motion graphics', 'Multiple formats', 'Same-day delivery'], cta: 'Create a Reel' },
+  { name: 'Wedding Invite', price: 'Starts at ₹499', description: 'For celebrations worth announcing beautifully.', features: ['Custom theme', 'Animated elements', 'Background music', 'Multiple ceremony cards', '2 revisions', 'Print-ready files'], cta: 'Create My Invite' },
 ]
 
 export default function Pricing() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const orderUrl = (name: string) => `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(`Hi I want to order ${name}`)}`
 
   return (
-    <section id="pricing" className="section-padding bg-dark-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary-navy/10 rounded-full blur-3xl"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-raleway mb-4 text-gradient-primary">
-            PRICING
-          </h2>
-          <p className="text-xl text-gray-400 font-raleway max-w-2xl mx-auto">
-            Transparent pricing for high-quality creative work. All packages include premium support.
-          </p>
-        </motion.div>
-
-        {/* Pricing cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {pricingPlans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative group"
-            >
-              {/* Popular badge */}
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-primary-teal/100 to-primary-navy text-white px-4 py-1 rounded-full font-raleway font-semibold text-sm flex items-center gap-1 glow-teal">
-                    <FaStar className="text-xs" />
-                    Most Popular
-                  </div>
-                </div>
-              )}
-
-              <div className={`relative h-full bg-gradient-to-br ${plan.gradient} rounded-2xl p-8 border ${plan.popular ? 'border-primary-teal/100 scale-105 glow-teal-strong' : 'border-primary-navy/30'} transition-all duration-300 hover:scale-105 hover:glow-teal`}>
-                {/* Plan header */}
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-raleway font-bold text-white mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-gray-300 text-sm mb-4">
-                    {plan.description}
-                  </p>
-                  <div className="mb-4">
-                    <span className="text-5xl font-raleway text-white">
-                      {plan.price}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Features list */}
-                <div className="space-y-3 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary-teal/20 flex items-center justify-center mt-0.5">
-                        <FaCheck className="text-primary-yellow/60 text-xs" />
-                      </div>
-                      <span className="text-gray-200 text-sm">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA button */}
-                <a
-                  href={`https://wa.me/919876543210?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(plan.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block w-full text-center px-6 py-3 rounded-lg font-raleway font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
-                    plan.popular
-                      ? 'bg-white text-primary-navy hover:bg-gray-100'
-                      : 'bg-primary-teal text-white hover:brightness-110'
-                  }`}
-                >
-                  <FaWhatsapp className="text-xl" />
-                  Order Now
-                </a>
-              </div>
-            </motion.div>
-          ))}
+    <section id="pricing" className="section-padding border-y border-[var(--border)] bg-[var(--surface)]">
+      <div className="editorial-container">
+        <div className="mb-14 grid gap-8 md:grid-cols-[1fr_0.6fr] md:items-end"><div><p className="editorial-label mb-5">{content.pricing.heading}</p><h2 className="display-serif max-w-3xl text-6xl leading-[0.9] md:text-8xl">Start small.<br />Create something great.</h2></div><p className="text-sm leading-relaxed text-[var(--muted)]">{content.pricing.subtitle}</p></div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {pricingPlans.map((plan, index) => <motion.article key={plan.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -8 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={`relative flex min-h-[530px] flex-col rounded-lg border px-6 py-7 shadow-[0_8px_24px_rgba(72,52,38,0.04)] transition-shadow duration-500 hover:border-[var(--accent)] hover:shadow-[0_20px_45px_rgba(72,52,38,0.12)] md:px-7 ${plan.popular ? 'border-[var(--accent)] bg-[var(--background)]' : 'border-[var(--border)] bg-[var(--surface)]'}`}>
+            {plan.popular && <p className="editorial-label mb-6 inline-flex w-fit border-b border-[var(--accent)] pb-2 text-[var(--accent)]">Most popular</p>}
+            <h3 className="text-xl font-bold tracking-[-0.02em]">{plan.name}</h3><p className="mt-3 min-h-10 text-sm leading-relaxed text-[var(--muted)]">{plan.description}</p><p className="my-7 border-b border-[var(--border)] pb-6"><span className="mb-1 block text-[0.65rem] font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Starting from</span><span className="display-serif block text-5xl leading-none">{plan.price.replace('Starts at ', '')}</span></p>
+            <ul className="mb-8 space-y-3">{plan.features.map((feature) => <li key={feature} className="flex items-start gap-2 text-sm text-[var(--muted)]"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]" />{feature}</li>)}</ul>
+            <a href={orderUrl(plan.name)} target="_blank" rel="noopener noreferrer" className="group mt-auto inline-flex w-fit items-center gap-3 border-b border-[var(--foreground)] pb-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]">{plan.cta} <FaArrowRight className="transition-transform group-hover:translate-x-1" /></a>
+          </motion.article>)}
         </div>
-
-        {/* Custom pricing note */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-12 max-w-3xl mx-auto"
-        >
-          <div className="bg-dark-800/50 border border-primary-navy/30 rounded-xl p-8">
-            <h3 className="text-2xl font-raleway font-bold text-white mb-3">
-              Need a Custom Package?
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Every project is unique. Get a personalized quote for bulk orders, premium services, or special requirements.
-            </p>
-            <a
-              href="https://wa.me/919876543210?text=Hi%20I%20need%20a%20custom%20package%20quote"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-primary-teal to-primary-navy hover:from-primary-navy hover:to-primary-navy text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal"
-            >
-              <FaWhatsapp className="text-xl" />
-              Get Custom Quote
-            </a>
-          </div>
-        </motion.div>
+        <div className="mt-20 grid gap-6 border-t border-[var(--foreground)] pt-10 md:grid-cols-[1fr_auto] md:items-end"><div><p className="editorial-label mb-4">Custom package</p><h3 className="display-serif max-w-3xl text-5xl leading-none md:text-7xl">{content.pricing.customPackage.title}</h3><p className="mt-5 max-w-xl text-sm leading-relaxed text-[var(--muted)]">{content.pricing.customPackage.description}</p></div><a href={`https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.customPackage)}`} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 border-b border-[var(--foreground)] pb-2 text-sm font-bold uppercase tracking-[0.12em] hover:text-[var(--accent)]">{content.pricing.customPackage.button} <FaWhatsapp className="transition-transform group-hover:translate-x-1" /></a></div>
       </div>
     </section>
   )

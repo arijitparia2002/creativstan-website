@@ -1,168 +1,46 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaWhatsapp, FaArrowDown } from 'react-icons/fa'
-import { useState, useEffect } from 'react'
+import { FaArrowDown, FaArrowRight, FaPlay } from 'react-icons/fa'
 import content from '@/config/content.json'
+import portfolioData from '@/config/portfolio.json'
 
 export default function Hero() {
+  const film = portfolioData.portfolioItems.find((item) => item.isVideo) ?? portfolioData.portfolioItems[0]
+  const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
+
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Generate particle data on client only to avoid hydration mismatch
-  const [particles, setParticles] = useState<Array<{
-    id: number
-    width: number
-    height: number
-    left: number
-    top: number
-    opacity: number
-    xMovement: number
-    duration: number
-  }>>([])
-
-  useEffect(() => {
-    setParticles(
-      Array.from({ length: 20 }, (_, i) => ({
-        id: i,
-        width: Math.random() * 6 + 2,
-        height: Math.random() * 6 + 2,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        opacity: Math.random() * 0.5 + 0.2,
-        xMovement: Math.random() * 20 - 10,
-        duration: Math.random() * 3 + 2,
-      }))
-    )
-  }, [])
-
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-primary-navy to-dark-900">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-primary-teal rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary-navy rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-primary-navy rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-        </div>
-      </div>
-
-      {/* Video background overlay (placeholder - add your video) */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
-
-      {/* Content */}
-      <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            className="font-raleway text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="text-gradient-primary">{content.hero.title}</span>
-          </motion.h1>
-
-          <motion.p
-            className="text-2xl md:text-3xl lg:text-4xl font-raleway font-bold mb-4 text-white"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {content.hero.subtitle}
-          </motion.p>
-
-          <motion.p
-            className="text-lg md:text-xl text-gray-300 mb-12 font-raleway"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {content.hero.services}
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <button
-              onClick={() => scrollToSection('portfolio')}
-              className="px-8 py-4 bg-primary-teal hover:brightness-110 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 glow-teal-strong text-lg"
-            >
-              {content.hero.buttons.portfolio}
-            </button>
-
-            <a
-              href={`https://wa.me/91${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-raleway font-semibold rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
-            >
-              <FaWhatsapp className="text-2xl" />
-              {content.hero.buttons.whatsapp}
-            </a>
+    <section className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--surface)] pt-28 md:pt-36">
+      <div className="editorial-container relative z-10 pb-24 md:pb-28">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
+          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}>
+            <p className="editorial-label reference-red mb-7">CREATIVE DESIGNER · DIGITAL CREATOR</p>
+            <h1 className="display-serif max-w-4xl text-[clamp(4rem,8.5vw,8.5rem)] leading-[0.84] tracking-[-0.035em]">
+              I TURN IDEAS<br />INTO <span className="accent-script reference-red">VISUAL</span><br />EXPERIENCES.
+            </h1>
+            <p className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]">{content.hero.subtitle}</p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--muted)]">{content.hero.description}</p>
+            <div className="mt-9 flex flex-wrap items-center gap-6">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-[var(--accent)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--foreground)] transition-transform hover:-translate-y-1">{content.hero.buttons.whatsapp} <FaArrowRight className="transition-transform group-hover:translate-x-1" /></a>
+              <button onClick={() => scrollToSection('portfolio')} className="group inline-flex items-center gap-3 border-b border-[var(--foreground)] pb-2 text-xs font-bold uppercase tracking-[0.12em]">{content.hero.buttons.portfolio} <FaArrowDown className="transition-transform group-hover:translate-y-1" /></button>
+            </div>
           </motion.div>
-        </motion.div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <button
-          onClick={() => scrollToSection('about')}
-          className="animate-bounce text-primary-teal hover:text-primary-yellow/60 transition-colors"
-        >
-          <FaArrowDown className="text-3xl" />
-        </button>
-      </motion.div>
-
-      {/* Floating particles */}
-      {particles.length > 0 && (
-        <div className="absolute inset-0 z-10 pointer-events-none">
-          {particles.map((particle) => (
-            <motion.div
-              key={particle.id}
-              className="particle bg-primary-teal/100"
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: particle.opacity,
-                y: [0, -30, 0],
-                x: [0, particle.xMovement, 0],
-              }}
-              style={{
-                width: particle.width + 'px',
-                height: particle.height + 'px',
-                left: particle.left + '%',
-                top: particle.top + '%',
-              }}
-              transition={{
-                opacity: { duration: 0.5 },
-                y: {
-                  duration: particle.duration,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                },
-                x: {
-                  duration: particle.duration,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                },
-              }}
-            />
-          ))}
+          <motion.a href={film.canvaLink} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, scale: 0.96, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} className="group relative mx-auto block w-full max-w-[430px] lg:mr-0">
+            <div className="relative aspect-[4/5] overflow-hidden bg-[#2A2420] shadow-[18px_20px_0_rgba(201,46,53,0.12)] transition-transform duration-700 group-hover:-translate-y-2">
+              <div className="absolute inset-5 border border-white/25" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-[var(--background)]"><span className="editorial-label mb-6 text-[var(--background)]/70">Featured invitation film</span><span className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent)] text-white transition-transform duration-500 group-hover:scale-110"><FaPlay className="ml-1" /></span><h2 className="display-serif mt-8 text-4xl leading-none">{film.title}</h2><p className="mt-4 text-xs uppercase tracking-[0.14em] text-[var(--background)]/70">{film.category} · Watch the film</p></div>
+              <span className="absolute right-5 top-5 text-xs font-bold text-[var(--background)]">01 / 03</span>
+            </div>
+            <div className="mt-4 flex items-center justify-between text-xs font-bold uppercase tracking-[0.12em]"><span>Open featured work</span><FaArrowRight className="transition-transform group-hover:translate-x-2" /></div>
+          </motion.a>
         </div>
-      )}
+
+      </div>
     </section>
   )
 }

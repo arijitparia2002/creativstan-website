@@ -1,96 +1,97 @@
 {
   "siteInfo": {
     "title": "Creativstan",
-    "tagline": "Where Ideas Become Stunning Digital Creations",
-    "description": "Professional digital creator specializing in posters, wedding invites, reels, ads, and branding. Fast delivery. Modern designs. 100% custom creative work.",
+    "tagline": "Digital design for moments, stories and brands",
+    "description": "I'm Sharduli — a digital creator crafting invitations, posters, reels, advertisements and visual content for people, celebrations and brands.",
     "whatsappNumber": "6389071010",
     "email": "shardulipandey8090@gmail.com"
   },
 
   "hero": {
-    "title": "CREATIVSTAN",
-    "subtitle": "Where Ideas Become Stunning Digital Creations",
-    "services": "Posters • Digital Invites • Wedding Cards • Reels • Ads • Branding",
+    "title": "I TURN IDEAS INTO VISUAL EXPERIENCES.",
+    "subtitle": "I'm Sharduli — a digital creator crafting invitations, posters, reels, advertisements and visual content for people, celebrations and brands.",
+    "services": "From a simple idea to the final design, I create visuals that feel personal, modern and made for you.",
+    "description": "Tell me what you're imagining. I'll shape it into something people want to look at, share and remember.",
     "buttons": {
-      "portfolio": "View Portfolio",
-      "whatsapp": "WhatsApp Me"
+      "portfolio": "Explore My Work",
+      "whatsapp": "Let's Create"
     }
   },
 
   "about": {
-    "heading": "ABOUT ME",
-    "title": "Hi, I'm Sharduli — Your Personal Digital Creator",
+    "heading": "A LITTLE ABOUT ME",
+    "title": "DESIGNING THE MOMENTS YOU WANT TO REMEMBER.",
     "paragraphs": [
-      "I design posters, reels, wedding invites, ads, branding content, and modern digital assets for individuals & businesses.",
-      "With a passion for creativity and attention to detail, I transform your ideas into stunning visual experiences that captivate and inspire."
+      "Creativstan is my creative space for turning ideas into digital designs.",
+      "I create everything from wedding invitation films and celebration posters to social media creatives, reels, business advertisements and AI-powered visuals. Every project starts with your idea and ends with something created specifically for you."
     ],
     "features": [
       {
-        "title": "Fast Delivery",
-        "description": "Quick turnaround without compromising on quality"
+        "title": "Personal",
+        "description": "Every project is created around your idea."
       },
       {
-        "title": "Modern Designs",
-        "description": "Trendy, eye-catching designs that stand out"
+        "title": "Fast",
+        "description": "Quick turnaround when you need it."
       },
       {
-        "title": "100% Custom Work",
-        "description": "Every design is unique and tailored to your needs"
+        "title": "Custom",
+        "description": "No one-size-fits-all designs."
       }
     ]
   },
 
   "services": {
-    "heading": "OUR SERVICES",
-    "subtitle": "From posters to reels, we create stunning digital content that makes you stand out",
-    "customNote": "Need something custom? Let's talk!",
-    "customButton": "Contact for Custom Projects"
+    "heading": "SERVICES",
+    "subtitle": "Whether you're celebrating something special or building a brand, I create visuals designed to make people stop, look and remember.",
+    "customNote": "Every project doesn't fit into a package. Tell me what you're imagining and we'll figure out the right way to create it.",
+    "customButton": "Let's Talk About It"
   },
 
   "portfolio": {
-    "heading": "PORTFOLIO",
-    "subtitle": "Explore our creative work. Click any design to view and edit in Canva!",
-    "proTip": "💡 Pro Tip: Click on any design to view for customisation DM us",
-    "ctaText": "Love what you see? Let's create something amazing for you!",
-    "ctaButton": "Order Custom Design"
+    "heading": "SELECTED WORK",
+    "subtitle": "A collection of invitations, posters, reels, advertisements and digital experiments created for different people, occasions and brands.",
+    "proTip": "Open a project to view it in Canva.",
+    "ctaText": "Don't see what you need? Every project doesn't fit into a package.",
+    "ctaButton": "Let's Talk About It"
   },
 
   "pricing": {
-    "heading": "PRICING",
-    "subtitle": "Transparent pricing for high-quality creative work. All packages include premium support.",
+    "heading": "SIMPLE PRICING",
+    "subtitle": "Clear starting prices for everyday creative needs. Larger or custom projects can be quoted separately.",
     "customPackage": {
-      "title": "Need a Custom Package?",
-      "description": "Every project is unique. Get a personalized quote for bulk orders, premium services, or special requirements.",
-      "button": "Get Custom Quote"
+      "title": "YOUR PROJECT DOESN'T HAVE TO FIT A PACKAGE.",
+      "description": "Need a complete wedding invitation? A campaign for your business? A set of social creatives? Or something completely different? Tell me what you have in mind.",
+      "button": "Get a Custom Quote"
     }
   },
 
   "whyChooseUs": {
-    "heading": "WHY CHOOSE CREATIVSTAN?",
-    "subtitle": "We don't just create designs — we bring your vision to life with passion and precision",
+    "heading": "THE CREATIVSTAN WAY",
+    "subtitle": "SMALL DETAILS MAKE A BIG DIFFERENCE.",
     "stats": [
       {
-        "number": "100+",
+        "number": "300+",
         "label": "Happy Clients"
       },
       {
         "number": "100+",
-        "label": "Projects Done"
+        "label": "Projects Created"
       },
       {
-        "number": "24hrs",
-        "label": "Avg Delivery"
+        "number": "24h",
+        "label": "Typical Turnaround"
       },
       {
         "number": "100%",
-        "label": "Satisfaction"
+        "label": "Made With Care"
       }
     ]
   },
 
   "testimonials": {
-    "heading": "CLIENT TESTIMONIALS",
-    "subtitle": "Don't just take our word for it — hear from our satisfied clients",
+    "heading": "KIND WORDS",
+    "subtitle": "IT'S ALWAYS BETTER WHEN OTHERS SAY IT.",
     "trustBadges": {
       "rating": "4.9/5",
       "ratingLabel": "Average Rating",
@@ -102,20 +103,20 @@
   },
 
   "contact": {
-    "heading": "LET'S CREATE TOGETHER",
-    "title": "Your ideas, my creativity — perfect digital magic",
-    "subtitle": "Ready to bring your vision to life? Get in touch today!",
+    "heading": "LET'S MAKE IT REAL.",
+    "title": "Tell me what you're imagining. I'll bring the creative direction.",
+    "subtitle": "Usually replies within 24 hours.",
     "whatsappCard": {
       "title": "Chat on WhatsApp",
-      "description": "Get instant responses and start your project today. Available 24/7 for your creative needs.",
+      "description": "Start a conversation about your next idea.",
       "button": "Start Chat Now"
     },
     "emailCard": {
       "title": "Send an Email",
-      "description": "Prefer email? Drop us a message and we'll get back to you within 24 hours.",
+      "description": "Send an enquiry and I'll get back to you within 24 hours.",
       "button": "Send Email"
     },
-    "socialMediaText": "Follow us on social media for daily inspiration",
+    "socialMediaText": "Follow the work",
     "workingHours": {
       "title": "Working Hours",
       "weekdays": {
