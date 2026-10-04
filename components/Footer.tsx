@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 grid gap-8 border-t border-[var(--border)] pt-8 text-sm md:grid-cols-2">
-          <div><p className="editorial-label mb-4">{content.footer.quickLinks.title}</p><div className="flex flex-wrap gap-x-5 gap-y-2 text-[var(--muted)]">{content.footer.quickLinks.links.map((link) => <a key={link} href={`#${link.toLowerCase()}`} className="transition-colors hover:text-[var(--foreground)]">{link}</a>)}</div></div>
+          <div><p className="editorial-label mb-4">{content.footer.quickLinks.title}</p><div className="flex flex-wrap gap-x-5 gap-y-2 text-[var(--muted)]">{content.footer.quickLinks.links.map((link) => <a key={link} href={`#${link === 'Our Work' ? 'stories' : link.toLowerCase()}`} className="transition-colors hover:text-[var(--foreground)]">{link}</a>)}</div></div>
           <div><p className="editorial-label mb-4">{content.footer.services.title}</p><p className="leading-relaxed text-[var(--muted)]">{content.footer.services.items.join(' / ')}</p></div>
         </div>
         <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[var(--border)] pt-5 text-xs text-[var(--muted)] md:flex-row"><span>© {new Date().getFullYear()} {content.footer.copyright}</span><span>{content.footer.madeWith} by {content.siteInfo.title}</span></div>

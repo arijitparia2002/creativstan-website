@@ -31,10 +31,9 @@ export default function FloatingWhatsApp() {
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : 20 }}
-          className="absolute right-full mr-4 px-4 py-2 bg-dark-800 border border-primary-teal/50 rounded-lg whitespace-nowrap pointer-events-none"
+          className="absolute right-full mr-4 whitespace-nowrap rounded-full border border-[var(--border)] bg-[var(--background)] px-4 py-2 text-[var(--foreground)] shadow-lg pointer-events-none"
         >
-          <p className="text-white font-raleway font-semibold">{content.floatingWhatsApp.tooltip}</p>
-          <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-primary-teal/50"></div>
+          <p className="text-sm font-semibold">{content.floatingWhatsApp.tooltip}</p>
         </motion.div>
 
         {/* Button */}
@@ -43,12 +42,12 @@ export default function FloatingWhatsApp() {
           <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
 
           {/* Main button */}
-          <div className="relative w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg glow-teal-strong transition-colors">
+          <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[var(--accent)] shadow-lg transition-transform hover:scale-105">
             <FaWhatsapp className="text-4xl text-white" />
           </div>
 
           {/* Notification dot */}
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-dark-900 animate-pulse"></span>
+          <span className="absolute -right-1 -top-1 h-3 w-3 animate-pulse rounded-full border-2 border-[var(--background)] bg-[var(--foreground)]"></span>
         </div>
       </motion.a>
     </motion.div>

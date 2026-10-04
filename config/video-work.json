@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "src": "/media/CreativstanIntroWebsite.gif",
+    "alt": "Creativstan animated introduction"
+  },
+  "items": [
+    {
+      "id": "creativstan-poster",
+      "title": "Creativstan Visual Experiment",
+      "category": "Brand Visual",
+      "poster": "/media/Creativstankalkimakeover.png",
+      "youtubeEmbedUrl": "",
+      "description": "A visual piece from the Creativstan studio."
+    }
+  ]
+}
