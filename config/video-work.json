@@ -3,14 +3,125 @@
     "src": "/media/CreativstanIntroWebsite.gif",
     "alt": "Creativstan animated introduction"
   },
+  "categories": [
+    "All",
+    "Wedding Invites",
+    "Engagement",
+    "Reels & Motion",
+    "Business Ads",
+    "Cultural & Family",
+    "Brand Visual"
+  ],
   "items": [
+    {
+      "id": "engagement-invitation",
+      "title": "Elegant Engagement Invitation",
+      "category": "Engagement",
+      "type": "video",
+      "youtubeId": "B7f-0PwpfO0",
+      "youtubeUrl": "https://youtube.com/shorts/B7f-0PwpfO0?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/B7f-0PwpfO0",
+      "thumbnail": "https://i.ytimg.com/vi/B7f-0PwpfO0/hqdefault.jpg"
+    },
+    {
+      "id": "uber-style-promo",
+      "title": "Uber-Style Ride App Promo",
+      "category": "Business Ads",
+      "type": "video",
+      "youtubeId": "XyndVKI_HNw",
+      "youtubeUrl": "https://youtube.com/shorts/XyndVKI_HNw?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/XyndVKI_HNw",
+      "thumbnail": "https://i.ytimg.com/vi/XyndVKI_HNw/hqdefault.jpg"
+    },
+    {
+      "id": "sangeet-mathmangra",
+      "title": "Sangeet & Mathmangra Dual-Themed Invitation",
+      "category": "Wedding Invites",
+      "type": "video",
+      "youtubeId": "x0oLrlRqjWQ",
+      "youtubeUrl": "https://youtube.com/shorts/x0oLrlRqjWQ?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/x0oLrlRqjWQ",
+      "thumbnail": "https://i.ytimg.com/vi/x0oLrlRqjWQ/hqdefault.jpg"
+    },
+    {
+      "id": "pure-white-wedding",
+      "title": "Pure White Wedding Invitation",
+      "category": "Wedding Invites",
+      "type": "video",
+      "youtubeId": "kxQUzDSdXrA",
+      "youtubeUrl": "https://youtube.com/shorts/kxQUzDSdXrA?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/kxQUzDSdXrA",
+      "thumbnail": "https://i.ytimg.com/vi/kxQUzDSdXrA/hqdefault.jpg"
+    },
+    {
+      "id": "haldi-sangeet",
+      "title": "Beautiful Haldi & Sangeet Invitation",
+      "category": "Wedding Invites",
+      "type": "video",
+      "youtubeId": "T3grEkATAQ0",
+      "youtubeUrl": "https://youtube.com/shorts/T3grEkATAQ0?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/T3grEkATAQ0",
+      "thumbnail": "https://i.ytimg.com/vi/T3grEkATAQ0/hqdefault.jpg"
+    },
+    {
+      "id": "mehendi-invitation",
+      "title": "Beautiful Mehendi Invitation",
+      "category": "Wedding Invites",
+      "type": "video",
+      "youtubeId": "2C9VKN-N0ME",
+      "youtubeUrl": "https://youtube.com/shorts/2C9VKN-N0ME?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/2C9VKN-N0ME",
+      "thumbnail": "https://i.ytimg.com/vi/2C9VKN-N0ME/hqdefault.jpg"
+    },
+    {
+      "id": "annaprashan-invitation",
+      "title": "Cute Annaprashan Invitation Video",
+      "category": "Cultural & Family",
+      "type": "video",
+      "youtubeId": "6AyrRdd3lY8",
+      "youtubeUrl": "https://youtube.com/shorts/6AyrRdd3lY8?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/6AyrRdd3lY8",
+      "thumbnail": "https://i.ytimg.com/vi/6AyrRdd3lY8/hqdefault.jpg"
+    },
+    {
+      "id": "brand-reel",
+      "title": "Need a Reel for Your Brand?",
+      "category": "Reels & Motion",
+      "type": "video",
+      "youtubeId": "tVEcCv1zvlM",
+      "youtubeUrl": "https://youtube.com/shorts/tVEcCv1zvlM?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/tVEcCv1zvlM",
+      "thumbnail": "https://i.ytimg.com/vi/tVEcCv1zvlM/hqdefault.jpg"
+    },
+    {
+      "id": "brown-engagement",
+      "title": "Elegant Brown-Themed Engagement Invitation",
+      "category": "Engagement",
+      "type": "video",
+      "youtubeId": "O4wYr-xoecA",
+      "youtubeUrl": "https://youtube.com/shorts/O4wYr-xoecA?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/O4wYr-xoecA",
+      "thumbnail": "https://i.ytimg.com/vi/O4wYr-xoecA/hqdefault.jpg"
+    },
+    {
+      "id": "one-wedding-every-occasion",
+      "title": "One Wedding. Every Occasion. One Beautiful Invite",
+      "category": "Wedding Invites",
+      "type": "video",
+      "youtubeId": "wBaEYz89QGs",
+      "youtubeUrl": "https://youtube.com/shorts/wBaEYz89QGs?feature=share",
+      "youtubeEmbedUrl": "https://www.youtube.com/embed/wBaEYz89QGs",
+      "thumbnail": "https://i.ytimg.com/vi/wBaEYz89QGs/hqdefault.jpg"
+    },
     {
       "id": "creativstan-poster",
       "title": "Creativstan Visual Experiment",
       "category": "Brand Visual",
-      "poster": "/media/Creativstankalkimakeover.png",
+      "type": "image",
+      "youtubeId": "",
+      "youtubeUrl": "",
       "youtubeEmbedUrl": "",
-      "description": "A visual piece from the Creativstan studio."
+      "thumbnail": "/media/Creativstankalkimakeover.png"
     }
   ]
 }
