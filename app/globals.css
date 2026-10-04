@@ -6,9 +6,9 @@
   --background: #FEFAE0;
   --foreground: #283618;
   --muted: #606C38;
-  --border: #DDA15E;
+  --border: rgba(40, 54, 24, 0.14);
   --surface: #FEFAE0;
-  --surface-warm: #DDA15E;
+  --surface-warm: rgba(221, 161, 94, 0.16);
   --accent: #BC6C25;
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -26,19 +26,8 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Manrope', sans-serif;
   overflow-x: hidden;
-}
-
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: '';
-  opacity: 0.22;
-  background-image: radial-gradient(rgba(86, 65, 48, 0.1) 0.6px, transparent 0.6px);
-  background-size: 5px 5px;
 }
 
 ::selection {
@@ -203,9 +192,9 @@ button:focus-visible {
 }
 
 .display-serif {
-  font-family: 'Abril Fatface', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
 }
 
 .display-serif.italic,
@@ -214,16 +203,17 @@ button:focus-visible {
 }
 
 .brand-wordmark {
-  font-family: 'Abril Fatface', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 600;
   letter-spacing: -0.04em;
 }
 
 .accent-script {
-  font-family: 'The Night Before', 'Abril Fatface', cursive;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-style: italic;
 }
 
 .reference-red {
@@ -296,8 +286,8 @@ button:focus-visible {
 }
 
 .dark-footer {
-  background: #171313 !important;
-  color: #F7EEE3;
+  background: #111111 !important;
+  color: #FFFFFF;
 }
 
 .dark-footer .text-\[var\(--muted\)\] {

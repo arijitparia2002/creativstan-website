@@ -1,11 +1,11 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import portfolioData from '@/config/portfolio.json'
-import { FaExternalLinkAlt, FaPlay } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaPlay, FaTimes } from 'react-icons/fa'
 
 // Custom hook for lazy loading embeds
 function useLazyEmbed(itemId: number) {
@@ -62,12 +62,12 @@ type PortfolioItem = {
 const projectAction = (item: PortfolioItem) => item.isVideo ? (item.title === 'Demo Film' ? 'Watch Film' : 'Watch Reel') : 'View Project'
 
 // Portfolio Item Component with lazy loading
-function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanvaLink }: {
+function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openProject }: {
   item: PortfolioItem
   index: number
   hoveredItem: number | null
   setHoveredItem: (id: number | null) => void
-  openCanvaLink: (link: string) => void
+  openProject: (item: PortfolioItem) => void
 }) {
   const { embedRef, shouldLoad } = useLazyEmbed(item.id)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -97,7 +97,7 @@ function PortfolioItemCard({ item, index, hoveredItem, setHoveredItem, openCanva
       className="break-inside-avoid group relative cursor-pointer"
       onMouseEnter={() => setHoveredItem(item.id)}
       onMouseLeave={() => setHoveredItem(null)}
-      onClick={() => openCanvaLink(item.canvaLink)}
+      onClick={() => openProject(item)}
     >
       <div className="relative overflow-hidden rounded-xl bg-dark-800 border border-primary-navy/20 hover:border-primary-teal/50 transition-all duration-300">
         {embedData ? (
@@ -276,6 +276,7 @@ export default function Portfolio() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [activeCategory, setActiveCategory] = useState('All')
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null)
 
   const portfolioItems: PortfolioItem[] = portfolioData.portfolioItems
 
@@ -283,9 +284,18 @@ export default function Portfolio() {
     ? portfolioItems
     : portfolioItems.filter(item => item.category === activeCategory)
 
-  const openCanvaLink = (link: string) => {
-    window.open(link, '_blank', 'noopener,noreferrer')
-  }
+  useEffect(() => {
+    if (!selectedItem) return
+    const closeOnEscape = (event: KeyboardEvent) => event.key === 'Escape' && setSelectedItem(null)
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [selectedItem])
+
+  const getEmbedUrl = (embedCode?: string) => embedCode?.match(/src="([^"]+)"/)?.[1]
 
   return (
     <section id="portfolio" className="section-padding relative overflow-hidden">
@@ -336,7 +346,7 @@ export default function Portfolio() {
               index={index}
               hoveredItem={hoveredItem}
               setHoveredItem={setHoveredItem}
-              openCanvaLink={openCanvaLink}
+              openProject={setSelectedItem}
             />
           ))}
         </motion.div>
@@ -374,6 +384,18 @@ export default function Portfolio() {
             Order Custom Design
           </a>
         </motion.div>
+
+        <AnimatePresence>
+          {selectedItem && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 md:p-10" role="dialog" aria-modal="true" aria-label={`${selectedItem.title} project viewer`} onClick={() => setSelectedItem(null)}>
+              <motion.div initial={{ y: 24, scale: 0.97 }} animate={{ y: 0, scale: 1 }} exit={{ y: 24, scale: 0.97 }} className="relative grid max-h-[92vh] w-full max-w-6xl overflow-hidden bg-[var(--background)] md:grid-cols-[1fr_280px]" onClick={(event) => event.stopPropagation()}>
+                <button onClick={() => setSelectedItem(null)} className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--foreground)] text-white" aria-label="Close project viewer"><FaTimes /></button>
+                <div className="relative min-h-[55vh] bg-[var(--surface)] md:min-h-[76vh]">{getEmbedUrl(selectedItem.embedCode) ? <iframe title={selectedItem.title} src={getEmbedUrl(selectedItem.embedCode)} className="absolute inset-0 h-full w-full border-0" allowFullScreen allow="fullscreen" /> : <div className="flex h-full items-center justify-center"><FaPlay className="text-4xl text-[var(--accent)]" /></div>}</div>
+                <div className="flex flex-col justify-between gap-8 p-6 md:p-8"><div><p className="editorial-label mb-4">Project {String(selectedItem.id).padStart(3, '0')}</p><h2 className="text-3xl font-extrabold leading-none tracking-[-0.06em]">{selectedItem.title}</h2><p className="mt-3 text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">{selectedItem.category}</p><p className="mt-8 text-sm leading-relaxed text-[var(--muted)]">{selectedItem.shortDesc}</p></div><a href={selectedItem.canvaLink} target="_blank" rel="noopener noreferrer" className="group inline-flex w-fit items-center gap-3 border-b-2 border-[var(--foreground)] pb-2 text-xs font-bold uppercase tracking-[0.12em]">View full design <FaExternalLinkAlt className="transition-transform group-hover:translate-x-1" /></a></div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )

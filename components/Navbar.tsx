@@ -1,48 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaArrowRight, FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import content from '@/config/content.json'
 
+const links = [['Experiences', '#stories'], ['Our Work', '#stories'], ['Live Demos', '#stories'], ['Occasions', '#stories'], ['Packages', '#pricing'], ['About', '#contact']]
+
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scrollToSection = (href: string) => {
-    if (href === '#') window.scrollTo({ top: 0, behavior: 'smooth' })
-    else document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-    setIsMobileMenuOpen(false)
-  }
-
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
   const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
-  const links = content.navbar.links
-
-  return (
-    <>
-      <motion.nav initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${isScrolled ? 'border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-md' : 'bg-transparent'}`}>
-        <div className="editorial-container flex h-20 items-center justify-between">
-          <button onClick={() => scrollToSection('#')} className="brand-wordmark text-3xl lowercase text-[var(--accent)] md:text-4xl">{content.siteInfo.title}</button>
-          <div className="hidden items-center gap-8 md:flex">
-            {links.map((link) => <button key={link.href} onClick={() => scrollToSection(link.href)} className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">{link.name}</button>)}
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em]">{content.navbar.ctaButton} <FaArrowRight className="text-[10px] transition-transform group-hover:translate-x-1" /></a>
-          </div>
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] md:hidden" aria-label="Toggle menu">{isMobileMenuOpen ? <FaTimes /> : <FaBars />} <span>{isMobileMenuOpen ? 'Close' : 'Menu'}</span></button>
-        </div>
-      </motion.nav>
-
-      {isMobileMenuOpen && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-40 bg-[var(--background)] px-5 pt-28 md:hidden">
-        <div className="flex flex-col gap-6">
-          {links.map((link, index) => <motion.button key={link.href} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }} onClick={() => scrollToSection(link.href)} className="display-serif text-left text-5xl">{link.name}</motion.button>)}
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.14em]">{content.navbar.ctaButton} <FaArrowRight /></a>
-        </div>
-      </motion.div>}
-    </>
-  )
+  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 30); window.addEventListener('scroll', onScroll); return () => window.removeEventListener('scroll', onScroll) }, [])
+  return <><motion.nav initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-500 ${scrolled ? 'border-b border-[var(--border)] bg-[var(--background)]/94 shadow-[0_8px_30px_rgba(40,54,24,0.06)] backdrop-blur-md' : 'bg-transparent'}`}><div className="mx-auto flex h-20 w-[calc(100%-48px)] max-w-[1440px] items-center justify-between gap-6"><a href="#" className="brand-wordmark whitespace-nowrap text-3xl text-[var(--accent)]">creativstan</a><div className="hidden items-center gap-7 lg:flex">{links.map(([label, href], index) => <a key={label} href={href} className={`text-[11px] font-semibold ${index === 0 ? 'border-b border-[var(--accent)] pb-2' : ''} text-[var(--foreground)] transition-colors duration-300 hover:text-[var(--accent)]`}>{label}</a>)}</div><div className="hidden items-center gap-3 md:flex"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-5 py-3 text-xs font-bold transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"><FaWhatsapp /> WhatsApp</a><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[var(--accent)] px-5 py-3 text-xs font-bold text-white transition-transform duration-300 hover:-translate-y-1">Create Yours <span className="ml-2">→</span></a></div><button onClick={() => setOpen(!open)} className="text-[var(--foreground)] md:hidden" aria-label="Toggle menu">{open ? <FaTimes /> : <FaBars />}</button></div></motion.nav>{open && <motion.div initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: '100%' }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }} className="fixed inset-0 z-40 bg-[var(--background)] px-6 pt-28 md:hidden"><div className="flex flex-col gap-6">{links.map(([label, href], index) => <motion.a key={label} href={href} onClick={() => setOpen(false)} initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.06 }} className="display-serif text-5xl">{label}</motion.a>)}<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-fit rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-bold text-white">Create Yours →</a></div></motion.div>}</>
 }

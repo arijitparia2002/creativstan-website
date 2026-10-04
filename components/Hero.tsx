@@ -1,46 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaArrowDown, FaArrowRight, FaPlay } from 'react-icons/fa'
-import content from '@/config/content.json'
+import { FaArrowRight, FaPlay } from 'react-icons/fa'
 import portfolioData from '@/config/portfolio.json'
+import content from '@/config/content.json'
 
 export default function Hero() {
   const film = portfolioData.portfolioItems.find((item) => item.isVideo) ?? portfolioData.portfolioItems[0]
+  const embedUrl = film.embedCode?.match(/src="([^"]+)"/)?.[1]
   const whatsappUrl = `https://wa.me/${content.siteInfo.whatsappNumber}?text=${encodeURIComponent(content.whatsappMessages.general)}`
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  return (
-    <section className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--surface)] pt-28 md:pt-36">
-      <div className="editorial-container relative z-10 pb-24 md:pb-28">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}>
-            <p className="editorial-label reference-red mb-7">CREATIVE DESIGNER · DIGITAL CREATOR</p>
-            <h1 className="display-serif max-w-4xl text-[clamp(4rem,8.5vw,8.5rem)] leading-[0.84] tracking-[-0.035em]">
-              I TURN IDEAS<br />INTO <span className="accent-script reference-red">VISUAL</span><br />EXPERIENCES.
-            </h1>
-            <p className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]">{content.hero.subtitle}</p>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--muted)]">{content.hero.description}</p>
-            <div className="mt-9 flex flex-wrap items-center gap-6">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-[var(--accent)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--foreground)] transition-transform hover:-translate-y-1">{content.hero.buttons.whatsapp} <FaArrowRight className="transition-transform group-hover:translate-x-1" /></a>
-              <button onClick={() => scrollToSection('portfolio')} className="group inline-flex items-center gap-3 border-b border-[var(--foreground)] pb-2 text-xs font-bold uppercase tracking-[0.12em]">{content.hero.buttons.portfolio} <FaArrowDown className="transition-transform group-hover:translate-y-1" /></button>
-            </div>
-          </motion.div>
-
-          <motion.a href={film.canvaLink} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, scale: 0.96, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }} className="group relative mx-auto block w-full max-w-[430px] lg:mr-0">
-            <div className="relative aspect-[4/5] overflow-hidden bg-[#2A2420] shadow-[18px_20px_0_rgba(201,46,53,0.12)] transition-transform duration-700 group-hover:-translate-y-2">
-              <div className="absolute inset-5 border border-white/25" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-[var(--background)]"><span className="editorial-label mb-6 text-[var(--background)]/70">Featured invitation film</span><span className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent)] text-white transition-transform duration-500 group-hover:scale-110"><FaPlay className="ml-1" /></span><h2 className="display-serif mt-8 text-4xl leading-none">{film.title}</h2><p className="mt-4 text-xs uppercase tracking-[0.14em] text-[var(--background)]/70">{film.category} · Watch the film</p></div>
-              <span className="absolute right-5 top-5 text-xs font-bold text-[var(--background)]">01 / 03</span>
-            </div>
-            <div className="mt-4 flex items-center justify-between text-xs font-bold uppercase tracking-[0.12em]"><span>Open featured work</span><FaArrowRight className="transition-transform group-hover:translate-x-2" /></div>
-          </motion.a>
-        </div>
-
-      </div>
-    </section>
-  )
+  return <section className="min-h-[720px] bg-[var(--surface-warm)] pt-28 md:min-h-[760px] md:pt-36"><div className="mx-auto grid w-[calc(100%-48px)] max-w-[1440px] gap-12 pb-16 lg:grid-cols-[1fr_0.72fr] lg:items-center"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}><p className="mb-5 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--muted)]">Home / Video Invitations</p><p className="mb-7 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">◆ Video Invitations</p><h1 className="display-serif max-w-2xl text-6xl leading-[0.86] md:text-8xl">Don&apos;t just<br />announce it.<br /><span className="accent-script text-[var(--accent)]">Set the mood.</span></h1><p className="mt-8 max-w-xl text-sm leading-relaxed text-[var(--muted)] md:text-base">Cinematic visual invitations, celebration reels and digital designs made around your names, families, functions and music.</p><div className="mt-8 flex flex-wrap items-center gap-4"><a href={film.canvaLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-1"><FaPlay className="text-xs" /> Play a real film</a><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-bold">Create yours <FaArrowRight className="text-xs" /></a></div></motion.div><motion.a href={film.canvaLink} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 20, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.9, delay: 0.2 }} className="group mx-auto block w-full max-w-[340px] overflow-hidden rounded-2xl bg-[var(--foreground)] p-2 shadow-[0_24px_40px_rgba(42,37,34,0.16)]"><div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-[var(--foreground)]">{embedUrl ? <iframe title={film.title} src={embedUrl} loading="lazy" className="absolute inset-0 h-full w-full border-0" allowFullScreen allow="fullscreen" /> : <div className="flex h-full items-center justify-center text-white"><FaPlay className="text-4xl" /></div>}<span className="absolute bottom-5 left-5 rounded-full bg-[var(--accent)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-white">{film.category}</span><span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--accent)] text-white opacity-90 transition-transform group-hover:scale-110"><FaPlay className="ml-1" /></span></div></motion.a></div><div className="mx-auto grid w-[calc(100%-48px)] max-w-[1440px] grid-cols-3 border-t border-[var(--border)] py-5 text-xs text-[var(--muted)]"><span><strong className="display-serif block text-2xl text-[var(--foreground)]">2 days</strong>Delivery</span><span><strong className="display-serif block text-2xl text-[var(--foreground)]">3</strong>Revisions included</span><span><strong className="display-serif block text-2xl text-[var(--foreground)]">₹399</strong>Starting price</span></div></section>
 }
